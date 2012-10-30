@@ -1,3 +1,0 @@
-#Fri Oct 14 02:24:07 EDT 2011
-eclipse.preferences.version=1
-org.eclipse.php.debug.core.pathMapper=<pathMappers><item1><mapper><item1><remote>http\://localhost/WebUnitTesting</remote><local>/WebUnitTesting</local><type>WORKSPACE</type></item1></mapper><server>Default PHP Web Server</server></item1></pathMappers>

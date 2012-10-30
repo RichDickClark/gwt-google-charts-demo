@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename field &apos;taskMetrics&apos; in &apos;edu.mit.ll.irbenchmark.IRSystemRun&apos; to &apos;metrics&apos;&#x0A;- Original project: &apos;IRBenchmarker&apos;&#x0A;- Original element: &apos;edu.mit.ll.irbenchmark.IRSystemRun.taskMetrics&apos;&#x0A;- Renamed element: &apos;edu.mit.ll.irbenchmark.IRSystemRun.metrics&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;taskMetrics&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;edu.mit.ll.irbenchmark{IRSystemRun.java[IRSystemRun^taskMetrics" name="metrics" references="true" setter="false" stamp="1343967659120" textual="false" version="1.0"/>
-</session>

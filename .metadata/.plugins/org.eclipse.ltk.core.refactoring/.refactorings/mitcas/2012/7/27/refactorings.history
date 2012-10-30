@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move element &apos;Assert.h&apos; to &apos;unittesting&apos;&#x0A;- Original project: &apos;mitcas&apos;&#x0A;- Destination element: &apos;unittesting&apos;&#x0A;- Original element: &apos;Assert.h&apos;&#x0A;- Update references to refactored element" description="Move file" element1="mex/Assert.h" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1341568698408" target="mex/unittesting" units="0" version="1.0"/>
-</session>

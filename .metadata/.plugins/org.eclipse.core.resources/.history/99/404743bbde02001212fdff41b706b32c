@@ -1,7 +1,0 @@
-package com.williams;
-
-public abstract class URLOpener {
-
-	public abstract void open( String url );
-	
-}

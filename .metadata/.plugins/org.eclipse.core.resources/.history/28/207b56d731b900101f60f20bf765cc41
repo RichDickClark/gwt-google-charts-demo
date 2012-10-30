@@ -1,9 +1,0 @@
-package com.flyingsloth.financial.data;
-
-public class AssetHistory implements java.io.Serializable {
-
-	public String symbol;
-	DateDoubleList close_prices;
-	DateDoubleList dividends;
-	
-}

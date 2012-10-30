@@ -1,3 +1,0 @@
-#Wed Feb 29 13:39:03 EST 2012
-eclipse.preferences.version=1
-org.eclipse.dltk.launching.PREF_INTERPRETER_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<interpreterSettings>\n<defaultInterpreter environment\="org.eclipse.dltk.core.environment.localEnvironment" id\="56,ar.com.tadp.prolog.core.interpreter.SWIPrologInstallType13,1330540741647" nature\="ar.com.tadp.prolog.nature"/>\n<interpreterType id\="ar.com.tadp.prolog.core.interpreter.SWIPrologInstallType">\n<interpreter environmentId\="org.eclipse.dltk.core.environment.localEnvironment" id\="1330540741647" name\="swipl" path\="/opt/local/bin/swipl"/>\n</interpreterType>\n</interpreterSettings>\n
