@@ -1,0 +1,24 @@
+package edu.mit.ll.williams.hmm.test;
+
+import java.util.ArrayList;
+
+import edu.mit.ll.williams.hmm.FullHiddenMarkovModel;
+
+public class HMMPathParser {
+	
+	public final int numstates = 6;
+	private final FullHiddenMarkovModel hmm = FullHiddenMarkovModel.random(numstates, 256);
+	
+	public int[] parse( String path ) {
+		// Turn strings into sequences of integer observations
+				ArrayList<int[]> trainingInts = new ArrayList<int[]>( trainingStrings.size() );
+				for( String str : trainingStrings ) {
+					char[] chars = str.toCharArray();
+					int[] ints = new int[chars.length];
+					for( int k = 0; k < chars.length; ++k )
+						ints[k] = chars[k];
+					trainingInts.add(ints);
+				}
+	}
+	
+}

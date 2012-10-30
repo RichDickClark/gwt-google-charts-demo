@@ -1,0 +1,46 @@
+/**
+ * 
+ */
+package edu.mit.ll.CDRS;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @author ri18384
+ *
+ */
+public class DiscreteTimeSimulation implements Runnable {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * A quantity of interest that is saved at each time in the simulation
+	 * @author ri18384
+	 *
+	 */
+	protected abstract class Metric
+	{
+		public Metric( String name )
+		{
+			
+		}
+		
+		public abstract double calculate();
+	}
+	
+	private HashMap<String,Metric> metrics = new HashMap<String,Metric>();
+	
+	public class Results
+	{
+		double[] times = null;
+		Map<Metric,double[]> metrics = new HashMap<Metric,double[]>();
+	}
+	
+	public Results results = null;
+	
+}

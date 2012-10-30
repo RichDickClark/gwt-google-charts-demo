@@ -1,0 +1,246 @@
+/**
+ * 
+ */
+package edu.mit.ll.irbenchmark;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
+
+import edu.mit.ll.div4.grp42.clark.util.GitSha;
+
+/**
+ * @author Clark Williams
+ * The results (retireved documents) of a set of benchmark tasks that were run on 
+ * an information retrieval system at some point in time 
+ */
+@Entity
+public class IRSystemRun {
+		
+	public class InappropriateTruthDatasetException extends Exception {
+
+		private static final long serialVersionUID = 2247401598962514051L;
+
+		public InappropriateTruthDatasetException(CorpusName corpus,
+				CorpusName corpus2) {
+			super( "Expected truth dataset for corpus " + corpus.name() + " but was passed one for corpus " + corpus2.name() );
+		}
+
+	}
+
+	@SuppressWarnings("unused")
+	private IRSystemRun() {	
+		// Can't do this, because Hibernate SessionFactory creates a RunResult at its creation. 
+		// This would try to call Hibernate's save before Hibernate is initialized
+//		// Make sure this new runresult will be saved to database
+//		SocialMediaBenchmarksDatabase.save(this);
+	}
+	
+	public IRSystemRun( String irSystemName, 
+						BenchmarkTask task,
+						Date start,
+						Date end ) {
+		this.irSystemName = irSystemName;
+		this.task = task;
+		this.startDate = start;
+		this.endDate = end;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getBenchmarkCodeVersion() {
+		return benchmarkCodeVersion;
+	}
+
+	public void setBenchmarkCodeVersion(String benchmarkCodeVersion) {
+		this.benchmarkCodeVersion = benchmarkCodeVersion;
+	}
+
+	public String getIrSystemName() {
+		return irSystemName;
+	}
+
+	public void setIrSystemName(String irSystemName) {
+		this.irSystemName = irSystemName;
+	}
+
+	/**
+	 * Unique identifier for this benchmark run
+	 */
+	@Id
+	@GeneratedValue
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+	
+	@SuppressWarnings("unused")
+	private void setId(int id) {
+		this.id = id;
+	}
+	
+	/**
+	 * Time this set of benchmark tests was begun
+	 */
+	@Column(nullable=false)
+	private Date startDate = new Date();
+	
+	/**
+	 * Time this set of benchmarks tests completed
+	 */
+	@Column(nullable=false)	
+	private Date endDate;
+	
+	/**
+	 * SHA-1 hash of the git commit of the codebase that ran these tests
+	 */
+	@Column(nullable=false)
+	private String benchmarkCodeVersion = GitSha.sha;
+	
+	/**
+	 * Name of the information retrieval system these tests were run upon
+	 */
+	@Column(nullable=false)	
+	private String irSystemName;
+	
+	/**
+	 * Which test (search query) is this run
+	 */
+	@Column(nullable=false)	
+	private BenchmarkTask task;
+	
+	public BenchmarkTask getTask() {
+		return task;
+	}
+
+	public void setTask(BenchmarkTask task) {
+		this.task = task;
+	}
+	
+    @ElementCollection
+    @OrderColumn  	// Make sure the resulting persistent table saves the order!
+    @CollectionTable(name="RetrievedDocuments")
+    private List<Long> retrievedDocuments = new ArrayList<Long>();
+				
+    /**
+     * List of documents returned during this benchmark task 
+     * by the information retrieval system under test.  Ordered 
+     * from most relevant to least relevant.    
+     */
+	public List<Long> getRetrievedDocuments() {
+		return retrievedDocuments;
+	}
+
+	public void setRetrievedDocuments(List<Long> retrievedDocuments) {
+		this.retrievedDocuments = retrievedDocuments;
+	}
+
+	@OneToMany(targetEntity=EvaluationMetrics.class, mappedBy="runResults",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	private List<EvaluationMetrics> metrics = new ArrayList<EvaluationMetrics>();
+	
+	public List<EvaluationMetrics> getTaskMetrics() {
+		return metrics;
+	}
+	
+	@SuppressWarnings("unused")
+	private void setTaskMetrics( List<EvaluationMetrics> value ){
+		metrics = value;
+	}
+
+
+	/**
+	 * Save to database
+	 */
+	public void save() {
+		SocialMediaBenchmarksDatabase.save(this);
+		SocialMediaBenchmarksDatabase.commit();
+	}
+
+	/**
+	 * Save to database
+	 */
+	public static void save( IRSystemRun obj ) {
+		obj.save();
+	}
+	
+	/**
+	 * Load entity with given id from database
+	 * @param id primary key value
+	 * @return the RunResults object with that primary key, or null if none exists
+	 */
+	public static IRSystemRun load( int id ) {
+		return SocialMediaBenchmarksDatabase.loadRunResults(id);
+	}	
+	
+	/**
+	 * Remove this object from the database
+	 */
+	public void delete() {
+		SocialMediaBenchmarksDatabase.delete(this);
+		SocialMediaBenchmarksDatabase.commit();
+	}
+
+	/**
+	 * Calculate and save information retrieval performance metrics
+	 * from the results of this task using the latest
+	 * relevant truth dataset
+	 */
+	public EvaluationMetrics computeMetrics() {
+		try {
+			return computeMetrics( TruthDataset.loadLatest( this.task.corpus ));
+		} catch (InappropriateTruthDatasetException e) {
+			// Shouldn't be able to happen, if loadLatest is correctly implemented
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * Calculate and save information retrieval performance metrics
+	 * from the results of this task using the given truth dataset
+	 * @throws InappropriateTruthDatasetException 
+	 */	
+	public EvaluationMetrics computeMetrics( TruthDataset truth ) throws InappropriateTruthDatasetException {
+		
+		if( truth.getCorpus() != this.task.corpus )
+			throw new InappropriateTruthDatasetException( this.task.corpus, truth.getCorpus() );
+		
+		EvaluationMetrics newMetrics = new EvaluationMetrics(this, truth);
+		
+		newMetrics.compute( retrievedDocuments, task.topic );
+		
+		metrics.add(newMetrics);
+		
+		SocialMediaBenchmarksDatabase.save(this);
+		SocialMediaBenchmarksDatabase.save(newMetrics);
+		SocialMediaBenchmarksDatabase.commit();
+		
+		return newMetrics;
+	}	
+	
+}

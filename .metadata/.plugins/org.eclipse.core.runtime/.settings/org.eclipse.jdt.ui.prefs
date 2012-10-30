@@ -1,0 +1,22 @@
+#Sat Sep 22 00:47:59 EDT 2012
+content_assist_proposals_foreground=0,0,0
+spelling_locale_initialized=true
+org.eclipse.jdt.ui.text.templates_migrated=true
+useAnnotationsPrefPage=true
+eclipse.preferences.version=1
+org.eclipse.jface.textfont=1|Monaco|11.0|0|COCOA|1|;
+tabWidthPropagated=true
+org.eclipse.jdt.ui.editor.tab.width=
+fontPropagated=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.javadoclocations.migrated=true
+proposalOrderMigrated=true
+breadcrumb.org.eclipse.jdt.ui.JavaPerspective=true
+content_assist_proposals_background=255,255,255
+org.eclipse.jdt.ui.formatterprofiles.version=12
+org.eclipse.jdt.internal.ui.navigator.layout=2
+content_assist_number_of_computers=14
+useQuickDiffPrefPage=true
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.awt.Paint"><rhs name\="java.awt.Color"/></lhs><lhs name\="java.awt.Transparency"><rhs name\="java.awt.Color"/></lhs><lhs name\="java.awt.Color"><rhs name\="java.awt.Color"/></lhs><lhs name\="java.text.Format"><rhs name\="java.text.SimpleDateFormat"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.text.SimpleDateFormat"/><rhs name\="java.awt.geom.Point2D$Double"/></lhs><lhs name\="java.text.DateFormat"><rhs name\="java.text.SimpleDateFormat"/></lhs><lhs name\="java.awt.geom.Point2D"><rhs name\="java.awt.geom.Point2D$Double"/></lhs><lhs name\="java.awt.geom.Point2D$Double"><rhs name\="java.awt.geom.Point2D$Double"/></lhs><lhs name\="javax.measure.unit.Unit"><rhs name\="javax.measure.unit.AlternateUnit"/></lhs><lhs name\="java.lang.Enum"><rhs name\="javax.persistence.GenerationType"/><rhs name\="javax.persistence.CascadeType"/><rhs name\="javax.persistence.FetchType"/><rhs name\="edu.mit.ll.irbenchmark.amt.TimeSetting"/><rhs name\="edu.mit.ll.irbenchmark.amt.Sentiment"/><rhs name\="edu.mit.ll.irbenchmark.BenchmarkTask"/></lhs><lhs name\="edu.mit.ll.irbenchmark.amt.TimeSetting"><rhs name\="edu.mit.ll.irbenchmark.amt.TimeSetting"/></lhs><lhs name\="edu.mit.ll.irbenchmark.amt.Sentiment"><rhs name\="edu.mit.ll.irbenchmark.amt.Sentiment"/></lhs><lhs name\="edu.mit.ll.irbenchmark.BenchmarkTask"><rhs name\="edu.mit.ll.irbenchmark.BenchmarkTask"/></lhs><lhs name\="edu.mit.ll.irbenchmark.amt.SurveyResponse$SecondHandAccount"><rhs name\="edu.mit.ll.irbenchmark.amt.SurveyResponse$SecondHandAccount"/></lhs><lhs name\="edu.mit.ll.irbenchmark.amt.SurveyResponse$OfficialSounding"><rhs name\="edu.mit.ll.irbenchmark.amt.SurveyResponse$OfficialSounding"/></lhs><lhs name\="edu.mit.ll.irbenchmark.amt.SurveyResponse$RealOrFiction"><rhs name\="edu.mit.ll.irbenchmark.amt.SurveyResponse$RealOrFiction"/></lhs><lhs name\="com.williams.URLOpener"><rhs name\="com.williams.OSXUrlOpener"/></lhs><lhs name\="com.williams.UrlDirectory$UrlType"><rhs name\="com.williams.UrlDirectory$UrlType"/></lhs></history>
+org.eclipse.jdt.ui.text.code_templates_migrated=true

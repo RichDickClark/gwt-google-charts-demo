@@ -1,0 +1,5 @@
+package com.williams;
+
+public abstract class URLOpener {
+
+}

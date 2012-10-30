@@ -1,0 +1,9 @@
+package edu.mit.ll.williams.hmm.test;
+
+public class HMMPathParser {
+
+	public int[] parse( String path ) {
+		
+	}
+	
+}

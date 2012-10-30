@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package edu.mit.ll.CDRS;
+
+/**
+ * @author ri18384
+ *
+ */
+public interface SimulatedEntity {
+
+	void determineAction();
+	
+	void nextTime();
+	
+	double getTimeStep();
+	
+}

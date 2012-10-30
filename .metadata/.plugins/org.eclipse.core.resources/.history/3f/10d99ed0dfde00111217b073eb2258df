@@ -1,0 +1,263 @@
+package edu.mit.ll.irbenchmark;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+/**
+ * How well a particular information retrieval system performed a particular
+ * benchmark task 
+ * @author Clark Williams
+ *
+ */
+@Entity
+public class EvaluationMetrics {
+
+	public EvaluationMetrics( IRSystemRun testset, TruthDataset truth ) {
+		this.runResults = testset;
+		this.truthDataset = truth;
+	}
+	
+	protected EvaluationMetrics() {	
+	}
+	
+	@Id
+	@GeneratedValue	
+	private long id;
+	
+	public long getId() {
+		return id;
+	}
+	
+	@SuppressWarnings("unused")
+	private void setId( long value ){
+		id = value;
+	}
+	
+	/**
+	 * Version of the document relevance truth data the benchmark results
+	 * were computed with
+	 */
+	@ManyToOne
+	@JoinColumn(name="truth_dataset_id",nullable=false)
+	private TruthDataset truthDataset;	
+	
+	public TruthDataset getTruthDataset() {
+		return truthDataset;
+	}
+
+	@SuppressWarnings("unused")
+	private void setTruthDataset(TruthDataset truthDataset) {
+		this.truthDataset = truthDataset;
+	}
+
+	/**
+	 * The set of run results this task was conducted as part of
+	 */
+	@ManyToOne
+	@JoinColumn(name="run_result_id",nullable=false)
+	private IRSystemRun runResults;
+	
+	public IRSystemRun getRunResults() {
+		return runResults;
+	}
+	
+	@SuppressWarnings("unused")
+	private void setRunResults( IRSystemRun value ){
+		this.runResults = value;
+	}	
+
+	private double precisionAt5Lower;
+	private double precisionAt5Upper;
+	private double precisionAt10Lower;
+	private double precisionAt10Upper;
+	private double precisionAt15Lower;
+	private double precisionAt15Upper;
+	private double precisionAt20Lower;
+	private double precisionAt20Upper;
+	private double precisionAt25Lower;
+	private double precisionAt25Upper;
+	private double precisionAt30Lower;
+	private double precisionAt30Upper;		
+	
+	private static int[] precisionCutpoints = new int[] { 5, 10, 15, 20, 25, 30 };
+	
+	/**
+	 * Maximum number of top relevant documents to request from the information retrieval system 
+	 */
+	public static final int numberOfDocumentsToRequest = 30;	
+	
+	public double getPrecisionAt5Lower() {
+		return precisionAt5Lower;
+	}
+
+	public void setPrecisionAt5Lower(double precisionAt5Lower) {
+		this.precisionAt5Lower = precisionAt5Lower;
+	}
+
+	public double getPrecisionAt5Upper() {
+		return precisionAt5Upper;
+	}
+
+	public void setPrecisionAt5Upper(double precisionAt5Upper) {
+		this.precisionAt5Upper = precisionAt5Upper;
+	}
+
+	public double getPrecisionAt10Lower() {
+		return precisionAt10Lower;
+	}
+
+	public void setPrecisionAt10Lower(double precisionAt10Lower) {
+		this.precisionAt10Lower = precisionAt10Lower;
+	}
+
+	public double getPrecisionAt10Upper() {
+		return precisionAt10Upper;
+	}
+
+	public void setPrecisionAt10Upper(double precisionAt10Upper) {
+		this.precisionAt10Upper = precisionAt10Upper;
+	}
+
+	public double getPrecisionAt15Lower() {
+		return precisionAt15Lower;
+	}
+
+	public void setPrecisionAt15Lower(double precisionAt15Lower) {
+		this.precisionAt15Lower = precisionAt15Lower;
+	}
+
+	public double getPrecisionAt15Upper() {
+		return precisionAt15Upper;
+	}
+
+	public void setPrecisionAt15Upper(double precisionAt15Upper) {
+		this.precisionAt15Upper = precisionAt15Upper;
+	}
+
+	public double getPrecisionAt20Lower() {
+		return precisionAt20Lower;
+	}
+
+	public void setPrecisionAt20Lower(double precisionAt20Lower) {
+		this.precisionAt20Lower = precisionAt20Lower;
+	}
+
+	public double getPrecisionAt20Upper() {
+		return precisionAt20Upper;
+	}
+
+	public void setPrecisionAt20Upper(double precisionAt20Upper) {
+		this.precisionAt20Upper = precisionAt20Upper;
+	}
+
+	public double getPrecisionAt25Lower() {
+		return precisionAt25Lower;
+	}
+
+	public void setPrecisionAt25Lower(double precisionAt25Lower) {
+		this.precisionAt25Lower = precisionAt25Lower;
+	}
+
+	public double getPrecisionAt25Upper() {
+		return precisionAt25Upper;
+	}
+
+	public void setPrecisionAt25Upper(double precisionAt25Upper) {
+		this.precisionAt25Upper = precisionAt25Upper;
+	}
+
+	public double getPrecisionAt30Lower() {
+		return precisionAt30Lower;
+	}
+
+	public void setPrecisionAt30Lower(double precisionAt30Lower) {
+		this.precisionAt30Lower = precisionAt30Lower;
+	}
+
+	public double getPrecisionAt30Upper() {
+		return precisionAt30Upper;
+	}
+
+	public void setPrecisionAt30Upper(double precisionAt30Upper) {
+		this.precisionAt30Upper = precisionAt30Upper;
+	}
+	
+	public void setPrecision( int N, double lower, double upper ) {
+		switch( N ) {
+		case 5:
+			setPrecisionAt5Lower(lower);
+			setPrecisionAt5Upper(upper);
+			break;
+		case 10:
+			setPrecisionAt10Lower(lower);
+			setPrecisionAt10Upper(upper);
+			break;
+		case 15:
+			setPrecisionAt15Lower(lower);
+			setPrecisionAt15Upper(upper);
+			break;
+		case 20:
+			setPrecisionAt20Lower(lower);
+			setPrecisionAt20Upper(upper);
+			break;
+		case 25:
+			setPrecisionAt25Lower(lower);
+			setPrecisionAt25Upper(upper);
+			break;
+		case 30:
+			setPrecisionAt30Lower(lower);
+			setPrecisionAt30Upper(upper);
+			break;
+		default:
+			throw new IllegalArgumentException();
+		}
+	}
+
+	/**
+	 * Calculate all metrics 
+	 * @param retrievedDocuments
+	 */
+	public void compute(List<Long> retrievedDocuments, Topic topic) {
+		LowerUpperBound latest;
+		for( int N : precisionCutpoints ) {
+			latest = calculatePrecision(retrievedDocuments,topic,N);
+			setPrecision(N,latest.lower,latest.upper);
+		}
+	}
+	
+	private static class LowerUpperBound{
+		public LowerUpperBound(double lower, double upper) {
+			super();
+			this.lower = lower;
+			this.upper = upper;
+		}
+		public double lower;
+		public double upper;
+	}
+	
+	private LowerUpperBound calculatePrecision(List<Long> queryResults, Topic topic, int N){
+		int missing = 0;
+		double total = 0.0;
+		for( int n = 0; n < N; ++n ) {
+			long docID = queryResults.get(n);
+			Double truthScore = this.truthDataset.getTopicRelevanceTruthData(docID, topic);
+			if (truthScore != null){  // If that document has truth data
+				total += truthScore;
+			}else{
+				missing += 1;
+				// Optionally add to AMT queue
+			}
+		}
+		double lower = (double)total / (double)N;
+		double upper = ((double)total + missing)/(double)N;
+		return new LowerUpperBound(lower,upper);
+	}	
+
+}

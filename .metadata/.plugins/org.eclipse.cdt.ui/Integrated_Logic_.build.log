@@ -1,0 +1,447 @@
+
+**** Rebuild of configuration OSX UnitTests for project Integrated_Logic_ ****
+
+**** Internal Builder is used for build               ****
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o src/Path.o ../src/Path.cpp
+../src/Path.cpp: In member function 'double Path::getAccelTimes(int, bool) const':
+../src/Path.cpp:50: warning: unused variable 'nRow'
+../src/Path.cpp: In member function 'double Path::getPoints(int, int) const':
+../src/Path.cpp:76: warning: unused variable 'nRow'
+../src/Path.cpp:77: warning: unused variable 'nCol'
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/sin.o ../PathPlanner_src/sin.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/sin.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/abs.o ../PathPlanner_src/abs.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/abs.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o mex/structToAircraftState.o ../mex/structToAircraftState.cpp
+In file included from ../mex/structToAircraftState.h:15,
+                 from ../mex/structToAircraftState.cpp:15:
+../mex/../src/AircraftState.h:19:53: error: Common.h: No such file or directory
+../mex/../src/AircraftState.h:23:27: error: GBSAAMessages.h: No such file or directory
+In file included from ../mex/../src/AircraftState.h:21,
+                 from ../mex/structToAircraftState.h:15,
+                 from ../mex/structToAircraftState.cpp:15:
+../mex/../src/../config_get/ConfigFile.h:78: warning: 'class ConfigFile' has pointer data members
+../mex/../src/../config_get/ConfigFile.h:78: warning:   but does not override 'ConfigFile(const ConfigFile&)'
+../mex/../src/../config_get/ConfigFile.h:78: warning:   or 'operator=(const ConfigFile&)'
+In file included from ../mex/structToAircraftState.h:15,
+                 from ../mex/structToAircraftState.cpp:15:
+../mex/../src/AircraftState.h:27: error: 'DDS_Long' does not name a type
+In file included from ../mex/structToAircraftState.h:15,
+                 from ../mex/structToAircraftState.cpp:15:
+../mex/../src/AircraftState.h:38: error: 'track_id_type' does not name a type
+../mex/../src/AircraftState.h:71: error: expected `)' before 'id'
+../mex/../src/AircraftState.h:78: error: expected `)' before 'id'
+../mex/../src/AircraftState.h:80: error: 'milarmy' has not been declared
+../mex/../src/AircraftState.h:80: error: expected `)' before 'src'
+../mex/../src/AircraftState.h:97: error: 'track_id_type' does not name a type
+../mex/../src/AircraftState.h:164: error: 'track_id_type' has not been declared
+../mex/../src/AircraftState.h:225: error: expected ',' or '...' before '::' token
+../mex/../src/AircraftState.h:225: error: ISO C++ forbids declaration of 'milarmy' with no type
+../mex/structToAircraftState.cpp: In function 'std::auto_ptr<AircraftState> convertStructToAircraftState(const mxArray*)':
+../mex/structToAircraftState.cpp:71: error: no matching function for call to 'AircraftState::AircraftState(SRC::id_t&, double&, double&, double&, double&, double&, double&, double&, double&)'
+../mex/../src/AircraftState.h:57: note: candidates are: AircraftState::AircraftState()
+../mex/../src/AircraftState.h:25: note:                 AircraftState::AircraftState(const AircraftState&)
+../mex/../src/basicStuff.h: At global scope:
+../mex/../src/basicStuff.h:44: warning: 'pi' defined but not used
+../mex/../src/basicStuff.h:45: warning: 'deg2rad' defined but not used
+../mex/../src/basicStuff.h:46: warning: 'RAD2DEG' defined but not used
+../mex/../src/basicStuff.h:48: warning: 'INF' defined but not used
+../mex/../src/basicStuff.h:49: warning: 'NaN' defined but not used
+../mex/../src/basicStuff.h:55: warning: 'H_CONFLICT_DISTANCE' defined but not used
+../mex/../src/basicStuff.h:56: warning: 'V_CONFLICT_DISTANCE' defined but not used
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/any.o ../PathPlanner_src/any.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/any.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/cos.o ../PathPlanner_src/cos.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/cos.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/diff.o ../PathPlanner_src/diff.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/diff.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o src/safeStateRating.o ../src/safeStateRating.cpp
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/find.o ../PathPlanner_src/find.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/find.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/findPathIndicies_new.o ../PathPlanner_src/findPathIndicies_new.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/findPathIndicies_new.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o src/Serialize.o ../src/Serialize.cpp
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o Unit Testing/TestCode/PathTest.o ../Unit Testing/TestCode/PathTest.cc
+In file included from /Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-internal.h:40,
+                 from /Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest.h:57,
+                 from ../Unit Testing/TestCode/PathTest.cc:13:
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h: In copy constructor 'testing::internal::RE::RE(const testing::internal::RE&)':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:813: warning: 'testing::internal::RE::pattern_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:813: warning: 'testing::internal::RE::is_valid_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:813: warning: 'testing::internal::RE::full_regex_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:813: warning: 'testing::internal::RE::partial_regex_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h: In constructor 'testing::internal::RE::RE(const std::string&)':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:816: warning: 'testing::internal::RE::pattern_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:816: warning: 'testing::internal::RE::is_valid_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:816: warning: 'testing::internal::RE::full_regex_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:816: warning: 'testing::internal::RE::partial_regex_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h: In constructor 'testing::internal::RE::RE(const char*)':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:824: warning: 'testing::internal::RE::pattern_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:824: warning: 'testing::internal::RE::is_valid_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:824: warning: 'testing::internal::RE::full_regex_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:824: warning: 'testing::internal::RE::partial_regex_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h: At global scope:
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:1248: warning: base class 'class testing::internal::MutexBase' has a non-virtual destructor
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h: In constructor 'testing::internal::MutexBase::MutexBase()':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:1204: warning: 'testing::internal::MutexBase::mutex_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:1204: warning: 'testing::internal::MutexBase::owner_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h: In constructor 'testing::internal::Mutex::Mutex()':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:1250: note: synthesized method 'testing::internal::MutexBase::MutexBase()' first required here 
+In file included from /Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-internal.h:55,
+                 from /Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest.h:57,
+                 from ../Unit Testing/TestCode/PathTest.cc:13:
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-string.h: In constructor 'testing::internal::String::String(const char*)':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-string.h:195: warning: 'testing::internal::String::c_str_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-string.h:195: warning: 'testing::internal::String::length_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-string.h: In constructor 'testing::internal::String::String(const char*, size_t)':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-string.h:208: warning: 'testing::internal::String::c_str_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-string.h:208: warning: 'testing::internal::String::length_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-string.h: In constructor 'testing::internal::String::String(const std::string&)':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-string.h:226: warning: 'testing::internal::String::c_str_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-string.h:226: warning: 'testing::internal::String::length_' should be initialized in the member initialization list
+In file included from /Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest.h:57,
+                 from ../Unit Testing/TestCode/PathTest.cc:13:
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-internal.h: In constructor 'testing::internal::TypedTestCasePState::TypedTestCasePState()':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-internal.h:585: warning: 'testing::internal::TypedTestCasePState::defined_test_names_' should be initialized in the member initialization list
+In file included from /Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest-param-test.h:192,
+                 from /Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest.h:61,
+                 from ../Unit Testing/TestCode/PathTest.cc:13:
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h: In constructor 'testing::internal::ParameterizedTestCaseRegistry::ParameterizedTestCaseRegistry()':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:558: warning: 'testing::internal::ParameterizedTestCaseRegistry::test_case_infos_' should be initialized in the member initialization list
+In file included from /Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest.h:64,
+                 from ../Unit Testing/TestCode/PathTest.cc:13:
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest-test-part.h: In constructor 'testing::TestPartResultArray::TestPartResultArray()':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest-test-part.h:125: warning: 'testing::TestPartResultArray::array_' should be initialized in the member initialization list
+In file included from ../Unit Testing/TestCode/PathTest.cc:13:
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest.h: In constructor 'testing::AssertionResult::AssertionResult(bool)':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest.h:271: warning: 'testing::AssertionResult::message_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h: At global scope:
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h: In instantiation of 'testing::internal::is_pointer<const void*>':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest-printers.h:376:   instantiated from 'void testing::internal::PrintTo(const T&, std::ostream*) [with T = const void*]'
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest-printers.h:416:   instantiated from here
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-port.h:1473: warning: base class 'struct testing::internal::bool_constant<true>' has a non-virtual destructor
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-linked_ptr.h: In copy constructor 'testing::internal::linked_ptr<T>::linked_ptr(const testing::internal::linked_ptr<T>&) [with T = const testing::internal::ParamGeneratorInterface<bool>]':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:164:   instantiated from 'testing::internal::ParamGenerator< <template-parameter-1-1> >::ParamGenerator(const testing::internal::ParamGenerator< <template-parameter-1-1> >&) [with T = bool]'
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest-param-test.h:1221:   instantiated from here
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-linked_ptr.h:147: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::value_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-linked_ptr.h:147: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::link_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-internal.h: In constructor 'testing::internal::FloatingPoint<RawType>::FloatingPoint(const RawType&) [with RawType = double]':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest.h:1558:   instantiated from 'testing::AssertionResult testing::internal::CmpHelperFloatingPointEQ(const char*, const char*, RawType, RawType) [with RawType = double]'
+../Unit Testing/TestCode/PathTest.cc:29:   instantiated from here
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-internal.h:365: warning: 'testing::internal::FloatingPoint<double>::u_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-linked_ptr.h: In constructor 'testing::internal::linked_ptr<T>::linked_ptr(T*) [with T = const testing::internal::ParamGeneratorInterface<bool>]':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:163:   instantiated from 'testing::internal::ParamGenerator< <template-parameter-1-1> >::ParamGenerator(testing::internal::ParamGeneratorInterface<T>*) [with T = bool]'
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest-param-test.h:314:   instantiated from 'testing::internal::ParamGenerator<typename testing::internal::IteratorTraits<Iterator>::value_type> testing::ValuesIn(ForwardIterator, ForwardIterator) [with ForwardIterator = const bool*]'
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest-param-test.h:319:   instantiated from 'testing::internal::ParamGenerator<T> testing::ValuesIn(const T (&)[N]) [with T = bool, long unsigned int N = 2ul]'
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util-generated.h:99:   instantiated from 'testing::internal::ValueArray2<T1, T2>::operator testing::internal::ParamGenerator<T>() const [with T = bool, T1 = bool, T2 = bool]'
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/gtest-param-test.h:1221:   instantiated from here
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-linked_ptr.h:142: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::value_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-linked_ptr.h:142: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::link_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h: At global scope:
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h: In instantiation of 'testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:276:   instantiated from 'testing::internal::ParamIteratorInterface<T>* testing::internal::ValuesInIteratorRangeGenerator<T>::Begin() const [with T = bool]'
+../Unit Testing/TestCode/PathTest.cc:58:   instantiated from here
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:285: warning: 'class testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator' has pointer data members
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:285: warning:   but does not override 'operator=(const testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator&)'
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h: In constructor 'testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator::Iterator(const testing::internal::ParamGeneratorInterface<T>*, typename std::vector<T, std::allocator<_CharT> >::const_iterator) [with T = bool]':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:276:   instantiated from 'testing::internal::ParamIteratorInterface<T>* testing::internal::ValuesInIteratorRangeGenerator<T>::Begin() const [with T = bool]'
+../Unit Testing/TestCode/PathTest.cc:58:   instantiated from here
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:288: warning: 'testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator::value_' should be initialized in the member initialization list
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h: In copy constructor 'testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator::Iterator(const testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator&) [with T = bool]':
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:300:   instantiated from 'testing::internal::ParamIteratorInterface<T>* testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator::Clone() const [with T = bool]'
+../Unit Testing/TestCode/PathTest.cc:58:   instantiated from here
+/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include/gtest/internal/gtest-param-util.h:325: warning: 'testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator::value_' should be initialized in the member initialization list
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/pathPlannerRecursive_Coder_mexutil.o ../PathPlanner_src/pathPlannerRecursive_Coder_mexutil.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/pathPlannerRecursive_Coder_mexutil.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o src/MITLL_math.o ../src/MITLL_math.cpp
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/boundCheck.o ../PathPlanner_src/boundCheck.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/boundCheck.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o Unit Testing/TestCode/WaypointTest.o ../Unit Testing/TestCode/WaypointTest.cc
+In file included from ../Unit Testing/TestCode/WaypointTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In copy constructor 'testing::internal::RE::RE(const testing::internal::RE&)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1875: warning: 'testing::internal::RE::pattern_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1875: warning: 'testing::internal::RE::is_valid_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1875: warning: 'testing::internal::RE::full_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1875: warning: 'testing::internal::RE::partial_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::RE::RE(const std::string&)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1878: warning: 'testing::internal::RE::pattern_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1878: warning: 'testing::internal::RE::is_valid_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1878: warning: 'testing::internal::RE::full_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1878: warning: 'testing::internal::RE::partial_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::RE::RE(const char*)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1886: warning: 'testing::internal::RE::pattern_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1886: warning: 'testing::internal::RE::is_valid_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1886: warning: 'testing::internal::RE::full_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1886: warning: 'testing::internal::RE::partial_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: At global scope:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2310: warning: base class 'class testing::internal::MutexBase' has a non-virtual destructor
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::MutexBase::MutexBase()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2266: warning: 'testing::internal::MutexBase::mutex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2266: warning: 'testing::internal::MutexBase::owner_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::Mutex::Mutex()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2312: note: synthesized method 'testing::internal::MutexBase::MutexBase()' first required here 
+In file included from ../Unit Testing/TestCode/WaypointTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::String::String(const char*)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3045: warning: 'testing::internal::String::c_str_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3045: warning: 'testing::internal::String::length_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::String::String(const char*, size_t)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3058: warning: 'testing::internal::String::c_str_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3058: warning: 'testing::internal::String::length_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::String::String(const std::string&)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3076: warning: 'testing::internal::String::c_str_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3076: warning: 'testing::internal::String::length_' should be initialized in the member initialization list
+In file included from ../Unit Testing/TestCode/WaypointTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::TypedTestCasePState::TypedTestCasePState()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:7265: warning: 'testing::internal::TypedTestCasePState::defined_test_names_' should be initialized in the member initialization list
+In file included from ../Unit Testing/TestCode/WaypointTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::ParameterizedTestCaseRegistry::ParameterizedTestCaseRegistry()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10492: warning: 'testing::internal::ParameterizedTestCaseRegistry::test_case_infos_' should be initialized in the member initialization list
+In file included from ../Unit Testing/TestCode/WaypointTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::TestPartResultArray::TestPartResultArray()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:16782: warning: 'testing::TestPartResultArray::array_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::AssertionResult::AssertionResult(bool)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:17296: warning: 'testing::AssertionResult::message_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: At global scope:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In instantiation of 'testing::internal::is_pointer<const void*>':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9561:   instantiated from 'void testing::internal::PrintTo(const T&, std::ostream*) [with T = const void*]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9601:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2535: warning: base class 'struct testing::internal::bool_constant<true>' has a non-virtual destructor
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In copy constructor 'testing::internal::linked_ptr<T>::linked_ptr(const testing::internal::linked_ptr<T>&) [with T = const testing::internal::ParamGeneratorInterface<bool>]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10098:   instantiated from 'testing::internal::ParamGenerator< <template-parameter-1-1> >::ParamGenerator(const testing::internal::ParamGenerator< <template-parameter-1-1> >&) [with T = bool]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:16401:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9101: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::value_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9101: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::link_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::FloatingPoint<RawType>::FloatingPoint(const RawType&) [with RawType = double]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:18583:   instantiated from 'testing::AssertionResult testing::internal::CmpHelperFloatingPointEQ(const char*, const char*, RawType, RawType) [with RawType = double]'
+../Unit Testing/TestCode/WaypointTest.cc:42:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:7045: warning: 'testing::internal::FloatingPoint<double>::u_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::linked_ptr<T>::linked_ptr(T*) [with T = const testing::internal::ParamGeneratorInterface<bool>]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10097:   instantiated from 'testing::internal::ParamGenerator< <template-parameter-1-1> >::ParamGenerator(testing::internal::ParamGeneratorInterface<T>*) [with T = bool]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:15494:   instantiated from 'testing::internal::ParamGenerator<typename testing::internal::IteratorTraits<Iterator>::value_type> testing::ValuesIn(ForwardIterator, ForwardIterator) [with ForwardIterator = const bool*]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:15499:   instantiated from 'testing::internal::ParamGenerator<T> testing::ValuesIn(const T (&)[N]) [with T = bool, long unsigned int N = 2ul]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10650:   instantiated from 'testing::internal::ValueArray2<T1, T2>::operator testing::internal::ParamGenerator<T>() const [with T = bool, T1 = bool, T2 = bool]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:16401:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9096: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::value_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9096: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::link_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: At global scope:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In instantiation of 'testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10210:   instantiated from 'testing::internal::ParamIteratorInterface<T>* testing::internal::ValuesInIteratorRangeGenerator<T>::Begin() const [with T = bool]'
+../Unit Testing/TestCode/WaypointTest.cc:88:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10219: warning: 'class testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator' has pointer data members
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10219: warning:   but does not override 'operator=(const testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator&)'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator::Iterator(const testing::internal::ParamGeneratorInterface<T>*, typename std::vector<T, std::allocator<_CharT> >::const_iterator) [with T = bool]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10210:   instantiated from 'testing::internal::ParamIteratorInterface<T>* testing::internal::ValuesInIteratorRangeGenerator<T>::Begin() const [with T = bool]'
+../Unit Testing/TestCode/WaypointTest.cc:88:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10222: warning: 'testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator::value_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In copy constructor 'testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator::Iterator(const testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator&) [with T = bool]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10234:   instantiated from 'testing::internal::ParamIteratorInterface<T>* testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator::Clone() const [with T = bool]'
+../Unit Testing/TestCode/WaypointTest.cc:88:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10259: warning: 'testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator::value_' should be initialized in the member initialization list
+gcc -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/home/atchome/frankel/mitcas/config_files -I/home/atchome/frankel/mitcas/mex -I/opt/matlab/2011a/rtw/ext_mode/common -I/opt/matlab/2011a/toolbox/shared/simtargets -I/opt/matlab/2011a/simulink/include -I/opt/matlab/2011a/rtw/c/src/ext_mode/common -I/opt/matlab/2011a/extern/include -O0 -g3 -Wall -c -fmessage-length=0 -o PathPlanner_src/lookUpNearest.o ../PathPlanner_src/lookUpNearest.c
+In file included from ../PathPlanner_src/pathPlannerRecursive_Coder.h:20,
+                 from ../PathPlanner_src/lookUpNearest.c:12:
+/Applications/MATLAB_R2011a.app/extern/include/emlrt.h:473: warning: type qualifiers ignored on function return type
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o mex/structToClassUtils.o ../mex/structToClassUtils.cpp
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o Unit Testing/TestCode/OwnshipStateTest.o ../Unit Testing/TestCode/OwnshipStateTest.cc
+In file included from ../Unit Testing/TestCode/../../src/OwnshipState.h:20,
+                 from ../Unit Testing/TestCode/OwnshipStateTest.cc:13:
+../Unit Testing/TestCode/../../src/AircraftState.h:19:53: error: Common.h: No such file or directory
+../Unit Testing/TestCode/../../src/AircraftState.h:23:27: error: GBSAAMessages.h: No such file or directory
+In file included from ../Unit Testing/TestCode/../../src/AircraftState.h:21,
+                 from ../Unit Testing/TestCode/../../src/OwnshipState.h:20,
+                 from ../Unit Testing/TestCode/OwnshipStateTest.cc:13:
+../Unit Testing/TestCode/../../src/../config_get/ConfigFile.h:78: warning: 'class ConfigFile' has pointer data members
+../Unit Testing/TestCode/../../src/../config_get/ConfigFile.h:78: warning:   but does not override 'ConfigFile(const ConfigFile&)'
+../Unit Testing/TestCode/../../src/../config_get/ConfigFile.h:78: warning:   or 'operator=(const ConfigFile&)'
+In file included from ../Unit Testing/TestCode/../../src/OwnshipState.h:20,
+                 from ../Unit Testing/TestCode/OwnshipStateTest.cc:13:
+../Unit Testing/TestCode/../../src/AircraftState.h:27: error: 'DDS_Long' does not name a type
+In file included from ../Unit Testing/TestCode/../../src/OwnshipState.h:20,
+                 from ../Unit Testing/TestCode/OwnshipStateTest.cc:13:
+../Unit Testing/TestCode/../../src/AircraftState.h:38: error: 'track_id_type' does not name a type
+../Unit Testing/TestCode/../../src/AircraftState.h:71: error: expected `)' before 'id'
+../Unit Testing/TestCode/../../src/AircraftState.h:78: error: expected `)' before 'id'
+../Unit Testing/TestCode/../../src/AircraftState.h:80: error: 'milarmy' has not been declared
+../Unit Testing/TestCode/../../src/AircraftState.h:80: error: expected `)' before 'src'
+../Unit Testing/TestCode/../../src/AircraftState.h:97: error: 'track_id_type' does not name a type
+../Unit Testing/TestCode/../../src/AircraftState.h:164: error: 'track_id_type' has not been declared
+../Unit Testing/TestCode/../../src/AircraftState.h:225: error: expected ',' or '...' before '::' token
+../Unit Testing/TestCode/../../src/AircraftState.h:225: error: ISO C++ forbids declaration of 'milarmy' with no type
+In file included from ../Unit Testing/TestCode/OwnshipStateTest.cc:13:
+../Unit Testing/TestCode/../../src/OwnshipState.h:111: error: expected ',' or '...' before '::' token
+../Unit Testing/TestCode/../../src/OwnshipState.h:111: error: ISO C++ forbids declaration of 'milarmy' with no type
+../Unit Testing/TestCode/../../src/OwnshipState.h: In constructor 'OwnshipState::OwnshipState(SRC::id_t, double, double, double, double, double, double, double, double, double, bool)':
+../Unit Testing/TestCode/../../src/OwnshipState.h:38: error: no matching function for call to 'AircraftState::AircraftState(SRC::id_t&, double&, double&, double&, double&, double&, double&, double&, double&)'
+../Unit Testing/TestCode/../../src/AircraftState.h:57: note: candidates are: AircraftState::AircraftState()
+../Unit Testing/TestCode/../../src/AircraftState.h:25: note:                 AircraftState::AircraftState(const AircraftState&)
+../Unit Testing/TestCode/../../src/OwnshipState.h: In constructor 'OwnshipState::OwnshipState(SRC::id_t, double, double, double, double, double, double, double, bool)':
+../Unit Testing/TestCode/../../src/OwnshipState.h:45: error: no matching function for call to 'AircraftState::AircraftState(SRC::id_t&, double&, double&, double&, double&, double&, double, double, double&)'
+../Unit Testing/TestCode/../../src/AircraftState.h:57: note: candidates are: AircraftState::AircraftState()
+../Unit Testing/TestCode/../../src/AircraftState.h:25: note:                 AircraftState::AircraftState(const AircraftState&)
+In file included from ../Unit Testing/TestCode/OwnshipStateTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In copy constructor 'testing::internal::RE::RE(const testing::internal::RE&)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1875: warning: 'testing::internal::RE::pattern_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1875: warning: 'testing::internal::RE::is_valid_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1875: warning: 'testing::internal::RE::full_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1875: warning: 'testing::internal::RE::partial_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::RE::RE(const std::string&)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1878: warning: 'testing::internal::RE::pattern_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1878: warning: 'testing::internal::RE::is_valid_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1878: warning: 'testing::internal::RE::full_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1878: warning: 'testing::internal::RE::partial_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::RE::RE(const char*)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1886: warning: 'testing::internal::RE::pattern_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1886: warning: 'testing::internal::RE::is_valid_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1886: warning: 'testing::internal::RE::full_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:1886: warning: 'testing::internal::RE::partial_regex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: At global scope:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2310: warning: base class 'class testing::internal::MutexBase' has a non-virtual destructor
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::MutexBase::MutexBase()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2266: warning: 'testing::internal::MutexBase::mutex_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2266: warning: 'testing::internal::MutexBase::owner_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::Mutex::Mutex()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2312: note: synthesized method 'testing::internal::MutexBase::MutexBase()' first required here 
+In file included from ../Unit Testing/TestCode/OwnshipStateTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::String::String(const char*)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3045: warning: 'testing::internal::String::c_str_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3045: warning: 'testing::internal::String::length_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::String::String(const char*, size_t)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3058: warning: 'testing::internal::String::c_str_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3058: warning: 'testing::internal::String::length_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::String::String(const std::string&)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3076: warning: 'testing::internal::String::c_str_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:3076: warning: 'testing::internal::String::length_' should be initialized in the member initialization list
+In file included from ../Unit Testing/TestCode/OwnshipStateTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::TypedTestCasePState::TypedTestCasePState()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:7265: warning: 'testing::internal::TypedTestCasePState::defined_test_names_' should be initialized in the member initialization list
+In file included from ../Unit Testing/TestCode/OwnshipStateTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::ParameterizedTestCaseRegistry::ParameterizedTestCaseRegistry()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10492: warning: 'testing::internal::ParameterizedTestCaseRegistry::test_case_infos_' should be initialized in the member initialization list
+In file included from ../Unit Testing/TestCode/OwnshipStateTest.cc:14:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::TestPartResultArray::TestPartResultArray()':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:16782: warning: 'testing::TestPartResultArray::array_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::AssertionResult::AssertionResult(bool)':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:17296: warning: 'testing::AssertionResult::message_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: At global scope:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In instantiation of 'testing::internal::is_pointer<const void*>':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9561:   instantiated from 'void testing::internal::PrintTo(const T&, std::ostream*) [with T = const void*]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9601:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:2535: warning: base class 'struct testing::internal::bool_constant<true>' has a non-virtual destructor
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In copy constructor 'testing::internal::linked_ptr<T>::linked_ptr(const testing::internal::linked_ptr<T>&) [with T = const testing::internal::ParamGeneratorInterface<bool>]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10098:   instantiated from 'testing::internal::ParamGenerator< <template-parameter-1-1> >::ParamGenerator(const testing::internal::ParamGenerator< <template-parameter-1-1> >&) [with T = bool]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:16401:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9101: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::value_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9101: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::link_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::FloatingPoint<RawType>::FloatingPoint(const RawType&) [with RawType = double]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:18583:   instantiated from 'testing::AssertionResult testing::internal::CmpHelperFloatingPointEQ(const char*, const char*, RawType, RawType) [with RawType = double]'
+../Unit Testing/TestCode/OwnshipStateTest.cc:42:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:7045: warning: 'testing::internal::FloatingPoint<double>::u_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::linked_ptr<T>::linked_ptr(T*) [with T = const testing::internal::ParamGeneratorInterface<bool>]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10097:   instantiated from 'testing::internal::ParamGenerator< <template-parameter-1-1> >::ParamGenerator(testing::internal::ParamGeneratorInterface<T>*) [with T = bool]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:15494:   instantiated from 'testing::internal::ParamGenerator<typename testing::internal::IteratorTraits<Iterator>::value_type> testing::ValuesIn(ForwardIterator, ForwardIterator) [with ForwardIterator = const bool*]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:15499:   instantiated from 'testing::internal::ParamGenerator<T> testing::ValuesIn(const T (&)[N]) [with T = bool, long unsigned int N = 2ul]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10650:   instantiated from 'testing::internal::ValueArray2<T1, T2>::operator testing::internal::ParamGenerator<T>() const [with T = bool, T1 = bool, T2 = bool]'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:16401:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9096: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::value_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:9096: warning: 'testing::internal::linked_ptr<const testing::internal::ParamGeneratorInterface<bool> >::link_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: At global scope:
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In instantiation of 'testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10210:   instantiated from 'testing::internal::ParamIteratorInterface<T>* testing::internal::ValuesInIteratorRangeGenerator<T>::Begin() const [with T = bool]'
+../Unit Testing/TestCode/OwnshipStateTest.cc:83:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10219: warning: 'class testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator' has pointer data members
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10219: warning:   but does not override 'operator=(const testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator&)'
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In constructor 'testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator::Iterator(const testing::internal::ParamGeneratorInterface<T>*, typename std::vector<T, std::allocator<_CharT> >::const_iterator) [with T = bool]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10210:   instantiated from 'testing::internal::ParamIteratorInterface<T>* testing::internal::ValuesInIteratorRangeGenerator<T>::Begin() const [with T = bool]'
+../Unit Testing/TestCode/OwnshipStateTest.cc:83:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10222: warning: 'testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator::value_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h: In copy constructor 'testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator::Iterator(const testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator&) [with T = bool]':
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10234:   instantiated from 'testing::internal::ParamIteratorInterface<T>* testing::internal::ValuesInIteratorRangeGenerator<T>::Iterator::Clone() const [with T = bool]'
+../Unit Testing/TestCode/OwnshipStateTest.cc:83:   instantiated from here
+../Unit Testing/TestCode/../../../../../GTest-1.6.0/fused-src/gtest/gtest.h:10259: warning: 'testing::internal::ValuesInIteratorRangeGenerator<bool>::Iterator::value_' should be initialized in the member initialization list
+../Unit Testing/TestCode/../../src/basicStuff.h: At global scope:
+../Unit Testing/TestCode/../../src/basicStuff.h:44: warning: 'pi' defined but not used
+../Unit Testing/TestCode/../../src/basicStuff.h:45: warning: 'deg2rad' defined but not used
+../Unit Testing/TestCode/../../src/basicStuff.h:46: warning: 'RAD2DEG' defined but not used
+../Unit Testing/TestCode/../../src/basicStuff.h:48: warning: 'INF' defined but not used
+../Unit Testing/TestCode/../../src/basicStuff.h:49: warning: 'NaN' defined but not used
+../Unit Testing/TestCode/../../src/basicStuff.h:55: warning: 'H_CONFLICT_DISTANCE' defined but not used
+../Unit Testing/TestCode/../../src/basicStuff.h:56: warning: 'V_CONFLICT_DISTANCE' defined but not used
+g++ -DDEBUG -DRTI_64BIT -DRTI_LINUX -DRTI_UNIX -I/Applications/MATLAB_R2011a.app/extern/include -I/Applications/MATLAB_R2011a.app/rtw/c/src/ext_mode/common -I/Applications/MATLAB_R2011a.app/simulink/include -I/Applications/MATLAB_R2011a.app/toolbox/shared/simtargets -I/Applications/MATLAB_R2011a.app/rtw/ext_mode/common -I/include -I/include/ndds -I/uas-cpp/target/generated-sources/track/c++ -I/uas-cpp-lib/src/main/include -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/MATLAB/real_time_c++/Integrated_Logic_ -I/Users/ri18384/Documents/UASSAAtestbed/Phase_1_Plus/Algorithm/GTest-1.6.0/include -O0 -g3 -Wall -c -fmessage-length=0 -Weffc++ -o src/OwnshipState.o ../src/OwnshipState.cpp
+In file included from ../src/OwnshipState.h:20,
+                 from ../src/OwnshipState.cpp:9:
+../src/AircraftState.h:19:53: error: Common.h: No such file or directory
+../src/AircraftState.h:23:27: error: GBSAAMessages.h: No such file or directory
+In file included from ../src/AircraftState.h:21,
+                 from ../src/OwnshipState.h:20,
+                 from ../src/OwnshipState.cpp:9:
+../src/../config_get/ConfigFile.h:78: warning: 'class ConfigFile' has pointer data members
+../src/../config_get/ConfigFile.h:78: warning:   but does not override 'ConfigFile(const ConfigFile&)'
+../src/../config_get/ConfigFile.h:78: warning:   or 'operator=(const ConfigFile&)'
+In file included from ../src/OwnshipState.h:20,
+                 from ../src/OwnshipState.cpp:9:
+../src/AircraftState.h:27: error: 'DDS_Long' does not name a type
+In file included from ../src/OwnshipState.h:20,
+                 from ../src/OwnshipState.cpp:9:
+../src/AircraftState.h:38: error: 'track_id_type' does not name a type
+../src/AircraftState.h:71: error: expected `)' before 'id'
+../src/AircraftState.h:78: error: expected `)' before 'id'
+../src/AircraftState.h:80: error: 'milarmy' has not been declared
+../src/AircraftState.h:80: error: expected `)' before 'src'
+../src/AircraftState.h:97: error: 'track_id_type' does not name a type
+../src/AircraftState.h:164: error: 'track_id_type' has not been declared
+../src/AircraftState.h:225: error: expected ',' or '...' before '::' token
+../src/AircraftState.h:225: error: ISO C++ forbids declaration of 'milarmy' with no type
+In file included from ../src/OwnshipState.cpp:9:
+../src/OwnshipState.h:111: error: expected ',' or '...' before '::' token
+../src/OwnshipState.h:111: error: ISO C++ forbids declaration of 'milarmy' with no type
+../src/OwnshipState.h: In constructor 'OwnshipState::OwnshipState(SRC::id_t, double, double, double, double, double, double, double, double, double, bool)':
+../src/OwnshipState.h:38: error: no matching function for call to 'AircraftState::AircraftState(SRC::id_t&, double&, double&, double&, double&, double&, double&, double&, double&)'
+../src/AircraftState.h:57: note: candidates are: AircraftState::AircraftState()
+../src/AircraftState.h:25: note:                 AircraftState::AircraftState(const AircraftState&)
+../src/OwnshipState.h: In constructor 'OwnshipState::OwnshipState(SRC::id_t, double, double, double, double, double, double, double, bool)':
+../src/OwnshipState.h:45: error: no matching function for call to 'AircraftState::AircraftState(SRC::id_t&, double&, double&, double&, double&, double&, double, double, double&)'
+../src/AircraftState.h:57: note: candidates are: AircraftState::AircraftState()
+../src/AircraftState.h:25: note:                 AircraftState::AircraftState(const AircraftState&)
+../src/OwnshipState.h: In constructor 'OwnshipState::OwnshipState(SRC::id_t, std::string, double, double)':
+../src/OwnshipState.h:29: warning: 'OwnshipState::gearDeployTime' will be initialized after
+../src/OwnshipState.h:28: warning:   'bool OwnshipState::isGearDown'
+../src/OwnshipState.cpp:13: warning:   when initialized here
+../src/OwnshipState.cpp:14: error: no matching function for call to 'AircraftState::AircraftState(SRC::id_t&, std::string&, double&, double&)'
+../src/AircraftState.h:57: note: candidates are: AircraftState::AircraftState()
+../src/AircraftState.h:25: note:                 AircraftState::AircraftState(const AircraftState&)
+../src/OwnshipState.cpp: In member function 'OwnshipState& OwnshipState::operator=(const AircraftState&)':
+../src/OwnshipState.cpp:47: error: 'const class AircraftState' has no member named 'getId'
+../src/OwnshipState.cpp: At global scope:
+../src/OwnshipState.cpp:59: error: expected ',' or '...' before '::' token
+../src/OwnshipState.cpp:59: error: ISO C++ forbids declaration of 'milarmy' with no type
+../src/OwnshipState.cpp: In member function 'OwnshipState& OwnshipState::updateFrom(int)':
+../src/OwnshipState.cpp:61: error: 'track_report' was not declared in this scope
+../src/basicStuff.h: At global scope:
+../src/basicStuff.h:44: warning: 'pi' defined but not used
+../src/basicStuff.h:45: warning: 'deg2rad' defined but not used
+../src/basicStuff.h:46: warning: 'RAD2DEG' defined but not used
+../src/basicStuff.h:48: warning: 'INF' defined but not used
+../src/basicStuff.h:49: warning: 'NaN' defined but not used
+../src/basicStuff.h:55: warning: 'H_CONFLICT_DISTANCE' defined but not used
+../src/basicStuff.h:56: warning: 'V_CONFLICT_DISTANCE' defined but not used
+Internal Builder: Command canceled
+Build completed with errors
+Time consumed: 26260  ms.  

@@ -1,0 +1,21 @@
+package com.flyingsloth.financial.data;
+
+public class UnitTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) 
+	throws ParsingFailedException, java.net.ConnectException, java.text.ParseException {
+		System.out.println( YahooDataSource.getInitialDate("MSFT") );
+		//YahooPriceData price = YahooDataSource.getPrice("MCD","2010","09","02");
+		//System.out.println( price );
+		DateDoubleList divlist = new DateDoubleList( YahooDataSource.getDividends("MSFT") );
+		//java.util.Date[] dates = divlist.getDates();
+		//double[] values = divlist.getValues();
+		
+		//DateDoubleList pricelist = new DateDoubleList( YahooDataSource.getClosingPrices("MSFT") );
+		//System.out.println( pricelist );
+	}
+
+}

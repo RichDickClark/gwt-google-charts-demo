@@ -1,0 +1,33 @@
+package com.flyingsloth.financial.data;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
+
+public class DateDoubleList {
+	public DateDoubleList( Collection<DateDouble> src ) {
+		data = src;
+	}
+	
+	public Date[] getDates() {
+		Date[] result = new Date[data.size()];
+		Iterator<DateDouble> src_it = data.iterator();
+		for( int k = 0; k < data.size(); ++k )
+		{
+			result[k] = src_it.next().date;
+		}
+		return result;
+	}
+	
+	public double[] getValues() {
+		double[] result = new double[data.size()];
+		Iterator<DateDouble> src_it = data.iterator();
+		for( int k = 0; k < data.size(); ++k )
+		{
+			result[k] = src_it.next().value;
+		}
+		return result;		
+	}
+	
+	private Collection<DateDouble> data;
+}

@@ -1,0 +1,19 @@
+package com.flyingsloth;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+public class ConvertToMatlab {
+	private static final double REF_DATENUM = 719529;
+	private static final Calendar REF_DATE = new GregorianCalendar( 1970, 0, 1 );
+	private static final double MS_PER_DAY = 1000*60*60*24;
+	
+	static double convert( Date date ){
+		// Convert to a MATLAB serial date number
+		Calendar cal = new java.util.GregorianCalendar();
+		cal.setTime( date );
+		return REF_DATENUM + cal.compareTo(REF_DATE)/MS_PER_DAY;
+	}
+	
+}

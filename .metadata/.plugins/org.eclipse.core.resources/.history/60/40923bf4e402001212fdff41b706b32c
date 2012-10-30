@@ -1,0 +1,28 @@
+package com.williams;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+/**
+ * Supports URLs of form
+ *  http://www.google.com
+ * 	file://gp42-williams/Users/ri18384/Documents/papers
+ *	file://koinu@trillian/home/koinu/Music
+ *
+ * @author ri18384
+ *
+ */
+public abstract class UrlOpener {
+
+	public static UrlOpener create() {
+		switch( System.getProperty("os.name") ) {
+			case "Mac OS X":
+				return new OSXUrlOpener();
+			default:
+				throw new RuntimeException("Unrecognized operating system \"" + System.getProperty("os.name") + "\"" );				
+		}
+	}
+	
+	public abstract void open( String url ) throws MalformedURLException, IOException;
+	
+}

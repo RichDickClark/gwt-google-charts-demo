@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+package edu.mit.ll.CDRS;
+
+/**
+ * @author ri18384
+ *
+ */
+public class DiscreteTimeSimulation implements Runnable {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public class Results
+	{
+		double[] times;
+		
+	}
+	
+	public Results results = null;
+	
+}

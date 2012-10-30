@@ -1,0 +1,39 @@
+package com.williams;
+
+import java.io.IOException;
+
+public class UrlOpener {
+
+	public static void main( String[] args ) throws IOException, InterruptedException {
+		// How to launch an URL in OSX
+		
+		// Opening a local folder
+//		Process external = Runtime.getRuntime().exec( "open file://gp42-williams/Users/ri18384/Documents/papers" );
+
+		// Opening a local file
+//		Process external = Runtime.getRuntime().exec( "open file://gp42-williams/Users/ri18384/Pictures/Momo.jpg" );
+
+		// Opening finder to a local file
+//		Process external = Runtime.getRuntime().exec( "open -R file://gp42-williams/Users/ri18384/Pictures/Momo.jpg" );
+		
+		// Opening a web page
+//		Process external = Runtime.getRuntime().exec( "open http://www.google.com" );
+
+		// Running ssh
+//		Process external = Runtime.getRuntime().exec( "open ssh://koinu@trillian" );
+		
+		// But how to open a remote folder?  This doesn't work.  
+//		Process external = Runtime.getRuntime().exec( "open file://koinu@trillian/home/koinu/Music" );
+		// Nor does this
+//		Process external = Runtime.getRuntime().exec( "open ssh://koinu@trillian/home/koinu/Music" );
+		// Note that running the following within terminal ssh's to the target machine
+		// and leaves the user in the desired directory (desired behavior)
+		//   ssh -t koinu@trillian "cd /home/koinu/Music ; bash"
+		// How to start OSX terminal from within Java and make it do this?
+		Process external = Runtime.getRuntime().exec( "ssh -t koinu@trillian \"cd /home/koinu/Music ; bash\"" );
+//		Process external = Runtime.getRuntime().exec( "open /Applications/Utilities/Terminal.app --args ssh -t koinu@trillian \"cd /home/koinu/Music ; bash\"" );
+		
+		external.waitFor(); // let open command finish
+	}
+	
+}

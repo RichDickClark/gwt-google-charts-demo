@@ -1,0 +1,13 @@
+package com.flyingsloth.financial.data;
+
+public class UpdateAssetDatabase {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

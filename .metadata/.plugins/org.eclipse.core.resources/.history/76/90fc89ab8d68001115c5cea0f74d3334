@@ -1,0 +1,31 @@
+package edu.mit.ll.div4.grp42.client;
+
+public class EllipsoidModel {
+
+	public double flattening = 1.0/298.257223563;  // WGS-84 flattening
+	
+	/**
+	 * Calculate the local East, North and UP unit vectors, in ECEF coordinates, 
+	 * at a location given in geodetic latitude and longitude.    
+	 * @param latitude_degrees
+	 * @param longitude_degrees
+	 * @param[out] local_east
+	 * @param[out] local_north
+	 * @param[out] local_up
+	 * 
+	 * It is required that local_east, local_north and local_up already have field
+	 * value initialized to allocated arrays
+	 */
+	public static void localEastNorthUp(double latitude_degrees, double longitude_degrees,
+			Vector3d local_east, Vector3d local_north, Vector3d local_up ) {
+		local_east
+		local_north.value = new double[3];
+		local_up.value = new double[3];
+		
+		
+		
+		
+	}
+
+	
+}

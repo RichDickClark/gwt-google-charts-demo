@@ -1,0 +1,69 @@
+package com.flyingsloth.financial.data;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
+public class UnitTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) 
+	throws ParsingFailedException, java.net.ConnectException, java.text.ParseException, 
+		FileNotFoundException, IOException {
+		
+		//System.out.println( YahooDataSource.getInitialDate("MSFT") );
+		//YahooPriceData price = YahooDataSource.getPrice("MCD","2010","09","02");
+		//System.out.println( price );
+		//DateDoubleList divlist = new DateDoubleList( YahooDataSource.getDividends("MSFT") );
+		//ObjectOutputStream file = new ObjectOutputStream( new FileOutputStream( "MSFTdiv.ddl" ) );
+		//file.writeObject(divlist);
+		//java.util.Date[] dates = divlist.getDates();
+		//double[] values = divlist.getValues();
+		
+		//DateDoubleList pricelist = new DateDoubleList( YahooDataSource.getClosingPrices("MSFT") );
+		//System.out.println( pricelist );
+		
+//		String[] symbols = new String[3];
+//		symbols[0] = "MSFT";
+//		symbols[1] = "BOB";
+//		symbols[2] = "FFFFX";
+//		saveAssetHistories( "testassets.ahl", symbols );
+		
+		//System.out.println( YahooDataSource.getClosingPrices("BOB") );
+	}
+
+	public static void saveAssetHistories( String filename, String[] symbols ) throws FileNotFoundException, IOException {
+		ArrayList<AssetHistory> assets = new ArrayList<AssetHistory>( symbols.length );
+		for( int k = 0; k < symbols.length; ++k )
+		{
+			System.out.println( symbols[k] );
+			AssetHistory asset = new AssetHistory();
+			asset.symbol = symbols[k];
+			try
+			{
+				asset.dividends = new DateDoubleList( YahooDataSource.getDividends(symbols[k]) );
+				asset.close_prices = new DateDoubleList( YahooDataSource.getClosingPrices(symbols[k]));
+				assets.add( asset );				
+			}
+			catch( Exception e )
+			{
+				System.err.println( "Exception while retrieving data for " + symbols[k] + ": " + e );
+			}
+		}
+		ObjectOutputStream file = new ObjectOutputStream( new FileOutputStream( filename ) );
+		file.writeObject(assets);
+	}
+	
+	public static ArrayList<AssetHistory> loadAssetHistories( String filename ) throws FileNotFoundException, IOException, ClassNotFoundException {
+		ObjectInputStream file = new ObjectInputStream( new FileInputStream( filename ) );
+		return (ArrayList<AssetHistory>) file.readObject();
+	}
+	
+	
+}

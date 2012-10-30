@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;mysql-connector-java-5.1.17-bin.jar&apos; to &apos;JSON2TweetDB&apos;&#x0A;- Original project: &apos;AssetAnalysis&apos;&#x0A;- Destination element: &apos;JSON2TweetDB&apos;&#x0A;- Original element: &apos;mysql-connector-java-5.1.17-bin.jar&apos;&#x0A;- Update references to refactored element" description="Move file" destination="=JSON2TweetDB" element1="lib/mysql-connector-java-5.1.17-bin.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1331926010137" units="0" version="1.0"/>
+</session>

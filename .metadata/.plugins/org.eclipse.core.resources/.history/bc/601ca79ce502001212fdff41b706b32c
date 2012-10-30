@@ -1,0 +1,15 @@
+package com.williams;
+
+import org.junit.Test;
+
+public class UrlOpenerTest {
+
+	@Test
+	public void test() {
+		UrlOpener urlopen = UrlOpener.create();
+		assertTrue( UrlOpener.isLocalHost("gp42-williams") )
+		urlopen.open("file://gp42-williams/Users/ri18384/Documents/papers");
+		urlopen.open("file://koinu@trillian/home/koinu/Music");
+	}
+	
+}

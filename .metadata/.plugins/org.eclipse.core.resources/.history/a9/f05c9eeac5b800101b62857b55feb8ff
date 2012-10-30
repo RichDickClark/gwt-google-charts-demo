@@ -1,0 +1,166 @@
+package com.flyingsloth.financial.data;
+
+import HTTPUtil.HTTPRequestPoster;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import java.util.Collection;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import org.apache.commons.lang3.StringEscapeUtils;
+
+
+public class YahooDataSource {
+	
+	static YahooPriceData getPrice(String symbol, String year, String month, String date ) throws ParsingFailedException
+	{
+		//String symbol = "MCD";
+		//String month = "1"; // Jan = 00
+		//String date = "2";
+		//String year = "1970";
+		
+		String response = HTTPRequestPoster.sendGetRequest("http://finance.yahoo.com/q/hp", "s=" + symbol + "&a=" + month + "&b=" + date + "&c=" + year + "&d=" + month + "&e=" + date + "&f=" + year + "&g=d" );
+//		String response = HTTPRequestPoster.sendGetRequest("http://llwww", "" );		
+//		System.out.println( response );
+		
+		// Pull out the price table from the HTML code
+		Pattern regex_pricetable_HTML = Pattern.compile( "<table[^<>]*?><tr[^<>]*?><th[^<>]*?>Date</th>.*?<th[^<>]*?>Open</th>.*?<th[^<>]*?>High</th>.*?<th[^<>]*?>Low</th>.*?<th[^<>]*?>Close</th>.*?</tr>" 
+				+ "<tr[^<>]*>" + "<td[^<>]*>([^<>]*)</td>" + "<td[^<>]*>([^<>]*)</td>" + "<td[^<>]*>([^<>]*)</td>" + "<td[^<>]*>([^<>]*)</td>" + "<td[^<>]*>([^<>]*)</td>" + ".*?</table>" ); 
+		Matcher matches = regex_pricetable_HTML.matcher(response);
+		if( !matches.find() )
+			throw new ParsingFailedException();
+		
+		YahooPriceData result = new YahooPriceData();
+		result.Open = Double.parseDouble(matches.group(2));
+		result.High = Double.parseDouble(matches.group(3));
+		result.Low = Double.parseDouble(matches.group(4));
+		result.Close = Double.parseDouble(matches.group(5));
+		return result;
+	}
+
+    public static Collection<DateDouble> getDividends( String symbol )
+    throws java.text.ParseException, java.net.ConnectException {
+    	    	
+    	String htmlsrc = HTTPRequestPoster.sendGetRequest("http://finance.yahoo.com/q/hp", "s=" + symbol + "&g=v");
+    	Collection<DateDouble> results = parseYahooDividends( htmlsrc );
+    	
+    	// Is there more?    	
+		// Whether the text "Next' is in a <span> tag or an <a> tag tells us whether there are
+		// more prices on the next page
+		Pattern next_link_patt = Pattern.compile( "<a[^<>]*?href=\"[^<>\"]*?\\?([^<>\"]*?)\"[^<>]*?>Next</a>" );
+		Matcher m = next_link_patt.matcher(htmlsrc);
+		boolean are_more_prices = m.find();
+		while( are_more_prices )
+		{
+			// Replace HTML special entities (e.g. &amp) in the link to the next page
+			String nxtquery = StringEscapeUtils.unescapeHtml4(m.group(1));
+			htmlsrc = HTTPRequestPoster.sendGetRequest("http://finance.yahoo.com/q/hp", nxtquery );
+			results.addAll(parseYahooDividends( htmlsrc ));
+			m = next_link_patt.matcher(htmlsrc);
+			are_more_prices = m.find();
+		}
+    	
+    	return results;
+    }
+    
+    public static Collection<DateDouble> getClosingPrices( String symbol )
+    throws java.text.ParseException, java.net.ConnectException {
+    	    	
+    	String htmlsrc = HTTPRequestPoster.sendGetRequest("http://finance.yahoo.com/q/hp", "s=" + symbol + "&g=d");
+    	Collection<DateDouble> results = parseYahooClosingPrices( htmlsrc );
+    	
+    	// Is there more?    	
+		// Whether the text "Next' is in a <span> tag or an <a> tag tells us whether there are
+		// more prices on the next page
+		Pattern next_link_patt = Pattern.compile( "<a[^<>]*?href=\"[^<>\"]*?\\?([^<>\"]*?)\"[^<>]*?>Next</a>" );
+		Matcher m = next_link_patt.matcher(htmlsrc);
+		boolean are_more_prices = m.find();
+		while( are_more_prices )
+		{
+			// Replace HTML special entities (e.g. &amp) in the link to the next page
+			String nxtquery = StringEscapeUtils.unescapeHtml4(m.group(1));
+			htmlsrc = HTTPRequestPoster.sendGetRequest("http://finance.yahoo.com/q/hp", nxtquery );
+			results.addAll(parseYahooDividends( htmlsrc ));
+			m = next_link_patt.matcher(htmlsrc);
+			are_more_prices = m.find();
+		}
+    	
+    	return results;
+    }    
+    
+	private static Collection<DateDouble> parseYahooDividends( String htmlsrc ) 
+	throws java.text.ParseException {
+		//System.out.println( htmlsrc );
+		Pattern dividend_patt = Pattern.compile(
+				"<tr><td[^<>]*?>([^<>]*?)</td><td[^<>]*?>([0-9.]+) Dividend</td></tr>"
+				);
+		Matcher m = dividend_patt.matcher(htmlsrc);
+		ArrayList<DateDouble> results = new ArrayList<DateDouble>();
+		DateFormat dateparser = new SimpleDateFormat( "MMM dd, yyyy" );
+		while( m.find() )
+		{
+			//System.out.println( m.group() );
+			//System.out.println( m.group(1) );
+			//System.out.println( m.group(2) );
+			results.add( new DateDouble( dateparser.parse(m.group(1)), Double.parseDouble(m.group(2)) ) );
+		}
+				
+		return results;
+	}
+	
+	public static Collection<DateDouble> parseYahooClosingPrices( String htmlsrc ) 
+	throws java.text.ParseException {
+		//System.out.println( htmlsrc );
+		Pattern dividend_patt = Pattern.compile(
+				"<tr[^<>]*>" + "<td[^<>]*>([^<>]*)</td>" + "<td[^<>]*>([0-9.]+)</td>" + "<td[^<>]*>([0-9.]+)</td>" + "<td[^<>]*>([0-9.]+)</td>" + "<td[^<>]*>([0-9.]+)</td>" + "<td[^<>]*>([0-9,]+)</td>" + "<td[^<>]*>([0-9.]+)</td>" + "</tr>" 
+				);
+		Matcher m = dividend_patt.matcher(htmlsrc);
+		ArrayList<DateDouble> results = new ArrayList<DateDouble>();
+		DateFormat dateparser = new SimpleDateFormat( "MMM dd, yyyy" );
+		while( m.find() )
+		{
+			//System.out.println( m.group() );
+			//System.out.println( m.group(1) );
+			//System.out.println( m.group(2) );
+			results.add( new DateDouble( dateparser.parse(m.group(1)), Double.parseDouble(m.group(5)) ) );
+		}
+				
+		return results;
+	}	
+	
+	static Date getInitialDate( String symbol ) throws ParsingFailedException
+	{
+		// Bring up the Yahoo Finance Historical Prices page
+		// and see what start date it puts in by default
+		String response = HTTPRequestPoster.sendGetRequest("http://finance.yahoo.com/q/hp","s=" + symbol + "+Historical+Prices");
+		//System.out.println( response );
+		
+		// Start Month (eg March=02):  <select name="a" id="selstart"><option value="00">Jan</option>...<option selected value="02">
+		// Start Day (eg 13): <input type="text" name="b" id="startday" size="2" maxlength="2" value="13">
+		// Start Year (eg 1986): <input type="text" name="c" id="startyear" size="4" maxlength="4" value="1986"> 
+		
+		Pattern regex_pricetable_HTML = Pattern.compile( 
+				"<select [^<>]*?id=\"selstart\"[^<>]*?>.*?" + 
+				"<option selected value=\"([0-9]+)\">" + ".*?" + 
+				"<input[^<>]*?id=\"startday\"[^<>]*?value=\"([0-9]+)\">" + ".*?" + 
+				"<input[^<>]*?id=\"startyear\"[^<>]*?value=\"([0-9]+)\">" ); 
+		Matcher matches = regex_pricetable_HTML.matcher(response);
+		if( !matches.find() )
+			throw new ParsingFailedException();
+		
+//		System.out.println(matches.group());
+//		System.out.println(matches.group(1));
+//		System.out.println(matches.group(2));
+//		System.out.println(matches.group(3));
+		
+		Calendar result = new GregorianCalendar();
+		result.set( Integer.parseInt(matches.group(3)), Integer.parseInt(matches.group(1))+1, Integer.parseInt(matches.group(2)) );
+		
+		return result.getTime();
+	}
+	
+}

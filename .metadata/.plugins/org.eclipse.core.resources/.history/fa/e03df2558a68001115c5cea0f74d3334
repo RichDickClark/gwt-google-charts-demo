@@ -1,0 +1,66 @@
+package edu.mit.ll.div4.grp42.client;
+
+
+import edu.mit.ll.div4.grp42.client.openmap.proj.coords.ECEFPoint;
+
+public class Vector3d {
+
+	public double[] value = null; // don't want user to silently calculate with an unspecified value
+	
+	public Vector3d()
+	{
+		// Leave value at null so exceptions are thrown if it is 
+		// used without initializing
+	}
+	
+	public Vector3d( double x, double y, double z )
+	{
+		value = new double[3];
+		value[0] = x;
+		value[1] = y;
+		value[2] = z;
+	}
+	
+	public Vector3d( double[] value )
+	{
+		if( value.length != 3 ) throw new IllegalArgumentException("Arrays passed to constructor of mitll.common.Vector3d must have three elements");
+		this.value = value;
+	}
+	
+	public Vector3d( ECEFPoint value )
+	{
+		this.value = new double[3];
+		this.value[0] = value.getx();
+		this.value[1] = value.gety();
+		this.value[2] = value.getz();
+	}
+	
+	public ECEFPoint asECEFPoint()
+	{
+		return new ECEFPoint( value[0], value[1], value[2] );
+	}
+	
+	public Vector3d scale( double factor )
+	{
+		return new Vector3d( factor*value[0], factor*value[1], factor*value[2] );
+	}
+	
+	public double dot( Vector3d other )
+	{
+		return value[0]*other.value[0] + value[1]*other.value[1] + value[2]*other.value[2];
+	}	
+	
+	static public Vector3d sum( Vector3d a, Vector3d b )
+	{
+		return new Vector3d( a.value[0] + b.value[0], a.value[1] + b.value[1], a.value[2] + b.value[2] );
+	}
+	
+	static public double[] mult( double scalar, double[] vector )
+	{
+		double[] res = new double[3];
+		for( int k = 0; k < res.length; ++k )
+			res[k] = scalar*vector[k];
+		return res;
+	}
+	
+}

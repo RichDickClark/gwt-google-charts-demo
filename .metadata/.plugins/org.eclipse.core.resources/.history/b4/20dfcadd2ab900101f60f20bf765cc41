@@ -1,0 +1,17 @@
+package com.flyingsloth.financial.data;
+
+public class DateDouble {
+	public java.util.Date date;
+	public double value;
+	
+	public DateDouble( java.util.Date date, double value ){
+		this.date = date;
+		this.value = value;
+	}
+	
+	@Override
+	public String toString() {
+		return "(" + this.date.toString() + ", " + Double.toString(this.value) + ")";
+	}
+	
+}

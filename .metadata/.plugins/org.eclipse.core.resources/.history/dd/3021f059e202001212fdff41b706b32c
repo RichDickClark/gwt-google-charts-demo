@@ -1,0 +1,85 @@
+package com.williams;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class OSXUrlOpener extends UrlOpener {
+	
+	/**
+	 * Opens a new Terminal.app window, ssh's to remote host and changes to specified directory
+	 * @param loginNHost Login and hostname string e.g. "myserver" or "mylogin@myserver"
+	 * @param folderPath Path on remote machine e.g. "/home/mylogin/goodstuff"
+	 * @throws IOException 
+	 * @throws InterruptedException 
+	 */
+	public static void openSSHToRemoteFolder( String loginNHost, String folderPath ) throws IOException, InterruptedException {
+		// Note that running the following within terminal ssh's to the target machine
+		// and leaves the user in the desired directory (desired behavior)
+		//   ssh -t koinu@trillian "cd /home/koinu/Music ; bash"
+		// How to start OSX terminal from within Java and make it do this?
+		// Put it in a temporary shell script, then pass it to the "open" command
+		File scriptFile = File.createTempFile("command", ".sh");
+//		scriptFile.deleteOnExit();
+		FileWriter script = new FileWriter( scriptFile );
+		script.write( "#!/bin/bash\nssh -t " + loginNHost + " \"cd '" + folderPath + "' ; bash\"" );
+		script.close();
+//		Runtime.getRuntime().exec("chmod a+x myscript.sh").waitFor();
+		scriptFile.setExecutable(true, true);
+		Runtime.getRuntime().exec( "open -b com.apple.terminal " + scriptFile.getAbsolutePath() ).waitFor();		
+	}
+
+	public static void main( String[] args ) throws IOException, InterruptedException {
+		// How to launch an URL in OSX
+		
+		// Opening a local folder
+//		Process external = Runtime.getRuntime().exec( "open file://gp42-williams/Users/ri18384/Documents/papers" );
+
+		// Opening a local file
+//		Process external = Runtime.getRuntime().exec( "open file://gp42-williams/Users/ri18384/Pictures/Momo.jpg" );
+
+		// Opening finder to a local file
+//		Process external = Runtime.getRuntime().exec( "open -R file://gp42-williams/Users/ri18384/Pictures/Momo.jpg" );
+		
+		// Opening a web page
+//		Process external = Runtime.getRuntime().exec( "open http://www.google.com" );
+
+		// Running ssh
+//		Process external = Runtime.getRuntime().exec( "open ssh://koinu@trillian" );
+		
+		// But how to open a remote folder?  This doesn't work.  
+//		Process external = Runtime.getRuntime().exec( "open file://koinu@trillian/home/koinu/Music" );
+		// Nor does this
+//		Process external = Runtime.getRuntime().exec( "open ssh://koinu@trillian/home/koinu/Music" );
+		// Note that running the following within terminal ssh's to the target machine
+		// and leaves the user in the desired directory (desired behavior)
+		//   ssh -t koinu@trillian "cd /home/koinu/Music ; bash"
+		// How to start OSX terminal from within Java and make it do this?
+		// Put it in a temporary shell script, then pass it to the "open" command
+//		File scriptFile = File.createTempFile("command", ".sh");
+////		scriptFile.deleteOnExit();
+//		FileWriter script = new FileWriter( scriptFile );
+//		script.write( "#!/bin/bash\nssh -t koinu@trillian \"cd /home/koinu/Music ; bash\"" );
+//		script.close();
+////		Runtime.getRuntime().exec("chmod a+x myscript.sh").waitFor();
+//		scriptFile.setExecutable(true, true);
+//		Runtime.getRuntime().exec( "open -b com.apple.terminal " + scriptFile.getAbsolutePath() ).waitFor();
+		openSSHToRemoteFolder( "koinu@trillian", "/home/koinu/Music" );
+		
+//		external.waitFor(); // let open command finish
+	}
+
+	@Override
+	public void open(String url) throws MalformedURLException {
+		
+		URL parsed = new URL(url);
+		if( parsed.getProtocol()=="file" ||
+			parsed.getProtocol()=="ssh" )
+		{
+			openSSHToRemoteFolder( parsed.getHost(), parsed.getFile() );			
+		}
+	}
+	
+}

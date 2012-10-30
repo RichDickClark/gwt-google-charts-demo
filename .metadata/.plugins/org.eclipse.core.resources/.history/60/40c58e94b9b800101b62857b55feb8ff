@@ -1,0 +1,19 @@
+package com.flyingsloth.financial.data;
+
+import java.util.Collection;
+
+public class DateDoubleList {
+	public DateDoubleList( Collection<DateDouble> src ) {
+		
+	}
+	
+	public Date[] getDates() {
+		
+	}
+	
+	public double[] getValues() {
+		
+	}
+	
+	private Collection<DateDouble> data;
+}

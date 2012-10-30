@@ -1,0 +1,126 @@
+package edu.mit.ll.div4.grp42.client;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import com.google.gwt.maps.client.overlay.Icon;
+
+public class AircraftTrack {
+
+	public long trackNumber = 100;
+	public double initialLatitude_deg = 0.0;
+	public double initialLongitude_deg = 0.0;
+	public double initialHeading_deg = 0.0;
+	
+	public Date initialTime = new Date();
+	public double reportPeriodSec = 1.0;
+	
+	public class TrackLeg
+	{
+		public double durationSeconds = 60.0;
+		public double initialAltitudeFtMsl = 10000.0;
+		public double finalAltitudeFtMsl = 10000.0;
+		public double initialSpeedKts = 120.0;
+		public double finalSpeedKts = 120.0;
+		public double turnRateDegPerSec = 0.0;
+		
+		public double accelerationKnotsPerSecond()
+		{
+			if( durationSeconds==0.0 ) return 0.0;
+			return (finalSpeedKts-initialSpeedKts)/durationSeconds;
+		}
+		public double climbRateFeetPerSecond()
+		{
+			if( durationSeconds==0.0 ) return 0.0;
+			return (finalAltitudeFtMsl-initialAltitudeFtMsl)/durationSeconds;
+		}
+	}
+	
+	public List<TrackLeg> trackSegments = new ArrayList<TrackLeg>();
+	
+	public AircraftTrack()
+	{
+		trackSegments.add( new TrackLeg() );
+	}
+	
+	/**
+	 * Step size over which we approximate motion of aircraft as straight line
+	 */
+	public static double integrationStep = 1.0;
+	
+	public AircraftTrackReport[] generateTrackReports()
+	{
+		// Guess how many track reports there will be
+		double totalduration = 0.0;
+		for( TrackLeg leg : trackSegments )
+			totalduration += leg.durationSeconds;
+		int nreps = 1 + (int) Math.floor( totalduration / reportPeriodSec ); 
+				
+		ArrayList<AircraftTrackReport> reps  = new ArrayList<AircraftTrackReport>(nreps+5);
+		AircraftTrackReport[] rettype = new AircraftTrackReport[0];
+		
+		AircraftState curstate = new AircraftState();
+		curstate.latitude_degrees = this.initialLatitude_deg;
+		curstate.longitude_degrees = this.initialLongitude_deg;
+		curstate.heading_degrees = this.initialHeading_deg;
+		if( this.trackSegments.size() == 0 )
+		{
+			reps.add( new AircraftTrackReport( this.initialTime.getTime(), curstate, this ) );
+			return reps.toArray(rettype);
+		}
+		curstate.speed_knots = this.trackSegments.get(0).initialSpeedKts;
+		
+		reps.add( new AircraftTrackReport( this.initialTime.getTime(), curstate, this ) );
+		
+		Iterator<TrackLeg> p_curleg = this.trackSegments.iterator();
+		TrackLeg curleg = p_curleg.next();
+		
+		double next_track_rep_time = this.reportPeriodSec;
+		double time_elapsed_on_track = 0.0;
+		double time_left_on_leg = curleg.durationSeconds;		
+		double base_time = this.initialTime.getTime(); // only for output track reports
+		
+		// One track report an iteration
+		while( next_track_rep_time < totalduration )
+		{
+			// Complete any legs that are finished before the next track report
+			while( time_elapsed_on_track + time_left_on_leg <= next_track_rep_time )
+			{
+				// Finish current leg
+				curstate.evolve( time_left_on_leg, 
+						curleg.accelerationKnotsPerSecond(), 
+						curleg.turnRateDegPerSec, 
+						curleg.climbRateFeetPerSecond() );
+				time_elapsed_on_track += time_left_on_leg;
+				time_left_on_leg = 0.0;
+				if( p_curleg.hasNext() )
+				{
+					curleg = p_curleg.next();
+					time_left_on_leg = curleg.durationSeconds;
+				}
+			}
+			
+			// Evolve time to next report
+			double dt = next_track_rep_time - time_elapsed_on_track;
+			curstate.evolve( dt, 
+					curleg.accelerationKnotsPerSecond(), 
+					curleg.turnRateDegPerSec, 
+					curleg.climbRateFeetPerSecond() );
+			time_elapsed_on_track += dt;
+			time_left_on_leg -= dt;
+			
+			// Write a track report
+			reps.add( new AircraftTrackReport( base_time + time_elapsed_on_track, curstate, this ) );
+			
+			next_track_rep_time += this.reportPeriodSec;
+		}
+		
+		return reps.toArray(rettype);
+	}
+	
+	// GUI specific stuff
+	Icon icon = Icon.DEFAULT_ICON;
+	
+}

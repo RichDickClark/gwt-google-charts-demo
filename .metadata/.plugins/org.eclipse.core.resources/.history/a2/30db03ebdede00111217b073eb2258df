@@ -1,0 +1,58 @@
+package edu.mit.ll.irbenchmark;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
+
+
+public class Benchmarker {
+		
+	/**
+	 * Evaluate the given information retrieval system under all benchmarks and
+	 * save the resulting documents in new IRSystemRun objects.   
+	 * @param irsystem
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 */
+	public static Collection<IRSystemRun> benchmarkSystem( IRSystemName irsystem ) throws InstantiationException, IllegalAccessException {
+		ArrayList<IRSystemRun> results = new ArrayList<IRSystemRun>();
+		for( BenchmarkTask task : BenchmarkTask.values() ) {
+			results.add( benchmarkSystem( irsystem, task ) );
+		}
+		return results;
+	}
+	
+	public static IRSystemRun benchmarkSystem( IRSystemName irsystemName, BenchmarkTask task ) throws InstantiationException, IllegalAccessException {
+		
+		IRSystem irsystem = irsystemName.create();
+		
+		// Build an index for the required corpus for this irsystem, 
+		// if necessary
+		if( irsystem.hasIndex(task.corpus.toString()) ) {
+			irsystem.loadIndex( task.corpus.toString() );
+		}
+		else {
+			System.out.println( "Building Index of corpus " + task.corpus + " for algorithm " + irsystemName );
+			irsystem.buildIndex( task.corpus.toString(), task.corpus.getCorpus() );
+		}
+		
+		Date start = new Date();
+		List<Long> topdocs = irsystem.query( task.query, EvaluationMetrics.numberOfDocumentsToRequest );
+		Date end = new Date();
+		IRSystemRun results = new IRSystemRun( irsystemName.name(), task, start, end );
+		results.setRetrievedDocuments(topdocs);
+		SocialMediaBenchmarksDatabase.save(results);
+		SocialMediaBenchmarksDatabase.commit();
+
+		results.computeMetrics();
+		
+		return results;
+	}
+	
+	public static void main( String[] args ) throws InstantiationException, IllegalAccessException{
+		//SocialMediaBenchmarksDatabase.save( new TruthDataset( BenchmarkTask.TEST.corpus ) ); // Add empty truth dataset
+		benchmarkSystem( IRSystemName.LUCENE_ENGLISH_ANALYZER, BenchmarkTask.TEST );
+	}
+}

@@ -1,0 +1,113 @@
+The [Google API Libraries for Google Web Toolkit][1] (such as gwt-visualization.jar) are only meant for use on the client side (for generating javascript).  Fortunately Google also provides the server-side java code for publishing DataTables in their [Google Visualization Data Source Library][2].  
+
+Here is the setup that allowed me to generate DataTables on the server in a remote procedure call, pass them back to the client as a JSON string, and use Google Visualizations for Google Web Toolkit to display a nice Google Plot on the client web page.  I am using Eclipse Indigo with Google Web Toolkit 2.4.0.  
+
+- Add the [gwt-visualization.jar][3] GWT API binding client library to your project's build path.
+- Add the jar for the Google Visualization Data Source Library and all the included dependeny jars to PROJECT/war/WEB-INF/lib for the server code to use
+- Define a remote procedure interface that returns a String:
+
+In client/TableService.java :
+
+    package com.clark.demos.client;
+    
+    import com.google.gwt.user.client.rpc.RemoteService;
+    import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
+    
+    @RemoteServiceRelativePath("table")
+    public interface TableService extends RemoteService {
+    	String getTable(); 
+    }
+In client/TableServiceAsync.java :
+
+    package com.clark.demos.client;
+    
+    import com.google.gwt.user.client.rpc.AsyncCallback;
+    
+    public interface TableServiceAsync {
+    	void getTable( AsyncCallback<String> callback );
+    }
+In war/WEB-INF/web.xml : 
+
+      <servlet>
+        <servlet-name>tableServlet</servlet-name>
+        <servlet-class>com.clark.demos.server.TableServiceImpl</servlet-class>
+      </servlet>
+      <servlet-mapping>
+        <servlet-name>tableServlet</servlet-name>
+        <url-pattern>/google_visualization___gwt/table</url-pattern>
+      </servlet-mapping>
+
+- Implement the "table" service on the server:
+
+In server/TableServiceImpl.java :
+
+    package com.clark.demos.server;
+    
+    import com.google.visualization.datasource.datatable.ColumnDescription;
+    import com.google.visualization.datasource.datatable.DataTable;
+    import com.google.visualization.datasource.datatable.value.ValueType;
+    import com.google.visualization.datasource.render.JsonRenderer;
+    
+    @SuppressWarnings("serial")
+    public class TableServiceImpl extends RemoteServiceServlet implements
+    		TableService {
+    
+    	@Override
+    	public String getTable() {		
+    	    DataTable data = new DataTable();
+    	    data.addColumn( new ColumnDescription("Task", ValueType.TEXT, "Task") );
+    	    data.addColumn( new ColumnDescription("Stemming", ValueType.NUMBER, "Stemming") );
+    	    data.addColumn( new ColumnDescription("NoStemming", ValueType.NUMBER, "No Stemming") );
+            data.addRowFromValues( "Fire", 1.0, 0.8 );
+    	    data.addRowFromValues( "Flood", 0.5, 0.65 );			
+    	    return JsonRenderer.renderDataTable(data, true, false, false).toString();
+    	    }
+    
+    }
+
+- Have client code call the "table" service and construct a DataTable from the returned JSON string:
+
+In client/gwt-visualization-demo.java : 
+
+	public static native DataTable toDataTable(String json) /*-{
+	  return new $wnd.google.visualization.DataTable(eval("(" + json + ")"));
+	}-*/;	
+
+    public void onModuleLoad() {
+	  
+    // Create a callback to be called when the visualization API
+    // has been loaded.
+    Runnable onLoadCallback = new Runnable() {
+        public void run() {
+            final Panel panel = RootPanel.get();
+     
+            tableService.getTable(new AsyncCallback<String>() {
+				
+				@Override
+				public void onSuccess(String result) {					
+					AbstractDataTable data = toDataTable(result);
+			        BarChart pie = new BarChart(data, createOptions());
+
+			        pie.addSelectHandler(createSelectHandler(pie));
+			        panel.add(pie);				
+				}
+				
+				@Override
+				public void onFailure(Throwable caught) {				
+				}
+			});
+          }
+        };
+
+    // Load the visualization api, passing the onLoadCallback to be called
+    // when loading is done.
+    VisualizationUtils.loadVisualizationApi(onLoadCallback, BarChart.PACKAGE);
+    
+  }
+
+
+  [1]: http://code.google.com/p/gwt-google-apis/
+  [2]: http://code.google.com/p/google-visualization-java/
+  [3]: http://gwt-google-apis.googlecode.com/files/gwt-visualization-1.1.2.zip
+
+

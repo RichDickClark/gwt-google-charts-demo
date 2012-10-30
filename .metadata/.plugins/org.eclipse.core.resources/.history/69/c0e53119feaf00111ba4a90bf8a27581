@@ -1,0 +1,52 @@
+package edu.mit.ll.williams.hmm.test;
+
+import org.jblas.DoubleMatrix;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import edu.mit.ll.williams.hmm.FullHiddenMarkovModel;
+
+public class TestFullHiddenMarkovModel extends FullHiddenMarkovModel {
+
+	private static final long serialVersionUID = -3902410576847131882L;
+
+	public TestFullHiddenMarkovModel() {
+		super(2,2);
+		this.initialStateProbabilities.copy( new DoubleMatrix( new double[] { 0.5, 0.5 } ) );
+		this.transitionProbabilities.copy( new DoubleMatrix( new double[][] { {0.7, 0.3}, {0.3, 0.7} } ) );
+		this.observationProbabilities.copy( new DoubleMatrix( new double[][] { {0.9, 0.1}, {0.2, 0.8} } ));
+	}
+	
+	@Test
+	public void testInferStateDistributions() {
+		DoubleMatrix pState = inferStateDistributions( new int[] { 0, 0, 1, 0, 0 }, true );
+		System.out.println( pState );
+		//assertArrayEquals( new double[] {0.6469, 0.3531}, pState.getColumn(0).data, 0.0001 );
+		assertArrayEquals( new double[] {0.8673, 0.1327}, pState.getColumn(0).data, 0.0001 );
+		assertArrayEquals( new double[] {0.8204, 0.1796}, pState.getColumn(1).data, 0.0001 );
+		assertArrayEquals( new double[] {0.3075, 0.6925}, pState.getColumn(2).data, 0.0001 );
+		assertArrayEquals( new double[] {0.8204, 0.1796}, pState.getColumn(3).data, 0.0001 );
+		assertArrayEquals( new double[] {0.8673, 0.1327}, pState.getColumn(4).data, 0.0001 );
+	}
+	
+	@Test
+	public void testBaumWelch() {
+		int[][] corpus = new int[][] { { 0, 0, 1, 0, 0 }, { 1, 1, 0, 1, 1, 1, 1, 0, 0 }, { 1, 0, 0, 0 } };
+		singleBaumWelch( corpus );
+		System.out.println(this);
+		assertArrayEquals( new double[]{ 0.37536055679973, 0.62463944320027 }, this.initialStateProbabilities.data, 1e-6 );
+		assertArrayEquals( new double[]{ 0.901446496969686, 0.206995603475245, 0.0985535030303143, 0.793004396524755 }, this.observationProbabilities.data, 1e-6 );
+		assertArrayEquals( new double[]{ 0.756542757684001, 0.355720715367085, 0.243457242315999, 0.644279284632915 }, this.transitionProbabilities.data, 1e-6 );
+	}
+	
+	@Test
+	public void testExpectedTransitionCount() {
+		int[] observations = new int[] { 0, 0, 1, 0, 0 };
+		DoubleMatrix fwd = this.inferForwardStateDistributions(observations, true);
+		DoubleMatrix bwd = this.inferBackwardStateDistributions(observations);
+		DoubleMatrix transcnt = expectedTransitionCount( observations, fwd, bwd );
+		System.out.println( transcnt );
+		assertArrayEquals( new double[]{ 2.08018618865915, 0.735474384170303, 0.735474384170303, 0.448865043000245 }, transcnt.data, 1e-4 );
+	}
+	
+}

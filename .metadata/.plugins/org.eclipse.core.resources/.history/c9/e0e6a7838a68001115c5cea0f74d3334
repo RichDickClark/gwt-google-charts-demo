@@ -1,0 +1,87 @@
+package edu.mit.ll.div4.grp42.client;
+
+
+import edu.mit.ll.div4.grp42.client.openmap.proj.coords.ECEFPoint;
+import edu.mit.ll.div4.grp42.client.openmap.proj.coords.EnuFrame;
+import edu.mit.ll.div4.grp42.client.openmap.proj.coords.LatLonPoint;
+
+/**
+ * Captures the simple dynamics of our aircraft state
+ * @author ri18384
+ *
+ */
+public class AircraftState {
+
+	public static double INTEGRATION_STEP_SECONDS = 0.1;
+	
+	public void evolve( double dt_seconds, double acceleration_knots_per_sec, double turn_rate_deg_per_sec, double climb_rate_ft_per_sec )
+	{
+		Vector3d pos_ecef = new Vector3d( ECEFPoint.LLtoECEF( new LatLonPoint.Double( latitude_degrees, longitude_degrees ) ) ); 
+		
+		Vector3d local_east = new Vector3d();
+		Vector3d local_north = new Vector3d();
+		localEastNorth( latitude_degrees, longitude_degrees, local_east, local_north );
+		
+		while( dt_seconds > 0 )
+		{
+			Double step = INTEGRATION_STEP_SECONDS;
+			if( step > dt_seconds )
+				step = dt_seconds;
+			// TODO: step needs to be at least big enough to cause dt_seconds to decrease
+			
+			// New position
+			double heading_rad = UnitConversion.convertDegreesToRadians(heading_degrees);
+			Vector3d horz_dir_travel = Vector3d.sum( local_north.scale(Math.cos( heading_rad )) , local_east.scale(Math.sin( heading_rad )) );			
+			pos_ecef = Vector3d.sum( pos_ecef, horz_dir_travel.scale( step*UnitConversion.convertKnotsToMetersPerSecond(speed_knots) ) );
+			
+			// Convert it into LLA
+			LatLonPoint.Double lla = new LatLonPoint.Double();
+			pos_ecef.asECEFPoint().getLatLon(lla);			
+			latitude_degrees = lla.getLatitude();
+			longitude_degrees = lla.getLongitude();
+			
+			// New heading (if continuing in straight line)
+			localEastNorth( latitude_degrees, longitude_degrees, local_east, local_north );
+			heading_degrees = UnitConversion.convertRadiansToDegrees(
+						Math.atan2(horz_dir_travel.dot(local_north), horz_dir_travel.dot(local_east) )
+					);
+			
+			// Controls
+			heading_degrees += step*turn_rate_deg_per_sec;
+			speed_knots += step*acceleration_knots_per_sec;
+			altitude_ft_msl += step*climb_rate_ft_per_sec;
+					
+			dt_seconds -= step;
+		}
+	}
+	
+	private static final EllipsoidModel ellipsoid = new EllipsoidModel();
+	
+	public double latitude_degrees;
+	public double longitude_degrees;
+	public double heading_degrees;
+	public double speed_knots;
+	public double altitude_ft_msl;
+	
+	public String toString()
+	{
+		return "lat: " + latitude_degrees + " deg lon: " + longitude_degrees + " deg head: " + heading_degrees + " deg speed: " + speed_knots + " kts alt: " + altitude_ft_msl + " ft MSL"; 
+	}
+	
+	public static void main( String[] args )
+	{
+		AircraftState ac = new AircraftState();
+		ac.latitude_degrees = 43.169;
+		ac.longitude_degrees = -85.254;
+		ac.altitude_ft_msl = 10000;
+		ac.heading_degrees = 120;
+		ac.speed_knots = 120;
+		
+		for( int n = 0; n < 10; ++n )
+		{
+			System.out.println( ac.toString() );
+			ac.evolve(1.0, 0.0, 0.0, 0.0);
+		}
+	}
+	
+}

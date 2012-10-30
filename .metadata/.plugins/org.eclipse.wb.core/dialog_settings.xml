@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.wb.internal.core.nls.ui.NlsDialog">
+		<item value="437" key="height"/>
+		<item value="720" key="width"/>
+		<item value="240" key="y"/>
+		<item value="360" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.utils.ui.dialogs.StringsDialog">
+		<item value="267" key="height"/>
+		<item value="318" key="width"/>
+		<item value="325" key="y"/>
+		<item value="561" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.ComponentAddDialog">
+	</section>
+	<section name="org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyDialog">
+		<item value="300" key="height"/>
+		<item value="504" key="width"/>
+		<item value="359" key="y"/>
+		<item value="468" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.ImportArchiveDialog">
+		<item value="418" key="height"/>
+		<item value="525" key="width"/>
+		<item value="250" key="y"/>
+		<item value="457" key="x"/>
+		<list key="HISTORY_JAR_LIST">
+			<item value="/Applications/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201202290255-rel-r37/gwt-maps-1.1.1/gwt-maps.jar"/>
+		</list>
+	</section>
+	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.PaletteManagerDialog">
+		<item value="505" key="height"/>
+		<item value="525" key="width"/>
+		<item value="206" key="y"/>
+		<item value="457" key="x"/>
+	</section>
+</section>

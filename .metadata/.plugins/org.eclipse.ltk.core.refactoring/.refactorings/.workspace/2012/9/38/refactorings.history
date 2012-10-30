@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Personal File Index&apos;" deleteContents="true" description="Delete resource &apos;Personal File Index&apos;" element1="/Personal File Index" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1348197768450"/>
+</session>

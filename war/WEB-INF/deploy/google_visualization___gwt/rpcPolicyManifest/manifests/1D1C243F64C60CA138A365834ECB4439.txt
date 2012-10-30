@@ -1,0 +1,2 @@
+serviceClass: com.clark.demos.client.TableService
+path: 69A4758DBE9F871A51E97B15066230E1.gwt.rpc

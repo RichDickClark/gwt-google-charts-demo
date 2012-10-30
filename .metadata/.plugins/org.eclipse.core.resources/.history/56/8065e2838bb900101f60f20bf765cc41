@@ -1,0 +1,39 @@
+package com.flyingsloth.financial.data;
+
+import java.io.*;
+import java.util.*;
+
+public class SymbolList {
+	public String[] symbols;
+	
+	// Load from a text file of symbols
+	public SymbolList( String filename ) throws IOException {
+		File symbolfile = new File( filename );
+		int numsymbolguess = (int) (symbolfile.length() / 47);
+		ArrayList<String> newsymbols = new ArrayList<String>(numsymbolguess);
+		BufferedReader filein = new BufferedReader( new FileReader( filename ) );
+		
+		String nxtline = filein.readLine();
+		// Skip first line if it is a column header
+		if( nxtline.startsWith("Symbol") )
+		{
+			nxtline = filein.readLine();
+		}
+		while( nxtline != null )
+		{
+			int endcol = nxtline.indexOf('\t');
+			if( endcol < 0 )
+			{
+				newsymbols.add( nxtline );
+			}
+			else
+			{
+				newsymbols.add( nxtline.substring(0, endcol) );
+			}
+			nxtline = filein.readLine();
+		}
+		
+		this.symbols = newsymbols.toArray(this.symbols);
+	}
+	
+}

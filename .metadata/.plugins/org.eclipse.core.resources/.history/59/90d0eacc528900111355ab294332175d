@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package edu.mit.ll.CDRS;
+
+/**
+ * @author ri18384
+ * 
+ */
+public interface SimulatedEntity {
+
+	void determineAction();
+	
+	void nextTime();
+	
+	double getTimeStep();
+	
+}
+
+// TODO: make sure all simulated entities are registered with the simulation
